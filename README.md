@@ -2,7 +2,7 @@
 
 A collection of hands-on technical training manuals on the Microsoft platform, each a single self-contained HTML page. Grounded in the official Microsoft Learn documentation.
 
-**Live site:** https://yuro75.github.io/training-and-development/
+**Live site:** https://yuro75.github.io/td/
 
 ## Contents
 
