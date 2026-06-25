@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">F</span> Foundry IQ</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#context">2. What it provides</a><a class="lnk" href="#relationship">3. The three IQs</a><div class="sec">Using Foundry IQ</div><a class="lnk" href="#how">4. How to use it</a><a class="lnk" href="#glossary">5. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#context">2. What it provides</a><a class="lnk" href="#relationship">3. The three IQs</a><div class="sec">Using Foundry IQ</div><a class="lnk" href="#how">4. How to use it</a><a class="lnk" href="#glossary">5. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">6. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -96,6 +99,10 @@
       <section id="glossary">
         <h2><span class="badge">5</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Foundry IQ</td><td>The Azure AI Foundry knowledge layer for agents.</td></tr><tr><td>Azure AI Foundry</td><td>Microsoft's platform for building and running AI agents.</td></tr><tr><td>Knowledge</td><td>Authoritative documents/policies an agent grounds on.</td></tr><tr><td>Retrieval</td><td>Fetching relevant knowledge to supply to the model at run time.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">6</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents (preview)</a></li></ul>
       </section>
 
     </div>

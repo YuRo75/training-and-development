@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">Az</span> Microsoft Azure</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#global">2. Global infrastructure</a><div class="sec">Services</div><a class="lnk" href="#core-services">3. Core services</a><a class="lnk" href="#management">4. Managing Azure</a><div class="sec">Operate</div><a class="lnk" href="#governance">5. Governance & cost</a><a class="lnk" href="#getstarted">6. Get started</a><a class="lnk" href="#glossary">7. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#global">2. Global infrastructure</a><div class="sec">Services</div><a class="lnk" href="#core-services">3. Core services</a><a class="lnk" href="#management">4. Managing Azure</a><div class="sec">Operate</div><a class="lnk" href="#governance">5. Governance & cost</a><a class="lnk" href="#getstarted">6. Get started</a><a class="lnk" href="#glossary">7. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">8. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -107,6 +110,10 @@ az webapp up --name my-demo-app --runtime "NODE:20-lts"</code></pre>
       <section id="glossary">
         <h2><span class="badge">7</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Region</td><td>A set of datacenters in a geographic area.</td></tr><tr><td>Availability Zone</td><td>Isolated location within a region for high availability.</td></tr><tr><td>Resource group</td><td>A container for related Azure resources.</td></tr><tr><td>RBAC</td><td>Role-based access control via Microsoft Entra.</td></tr><tr><td>Bicep</td><td>A domain-specific language for Azure Infrastructure as Code.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">8</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/azure/" target="_blank" rel="noopener">Azure documentation</a></li><li><a href="https://learn.microsoft.com/azure/reliability/regions-overview" target="_blank" rel="noopener">What are Azure regions?</a></li><li><a href="https://learn.microsoft.com/azure/reliability/availability-zones-overview" target="_blank" rel="noopener">Availability zones overview</a></li><li><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/regions" target="_blank" rel="noopener">Select Azure regions</a></li><li><a href="https://learn.microsoft.com/credentials/certifications/resources/study-guides/az-900" target="_blank" rel="noopener">Exam AZ-900: Azure Fundamentals study guide</a></li></ul>
       </section>
 
     </div>
