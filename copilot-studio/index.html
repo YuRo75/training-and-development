@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Copilot Studio</title>
+<style>
+  :root{
+    --accent:#7c3aed; --accent-deep:#3b0764; --accent-soft:#f5f3ff;
+    --green:#107c41; --amber:#d29922;
+    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
+  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk:hover{background:#e7edf1;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
+  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px}
+  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+  pre code{background:none;border:none;padding:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--accent-soft);border-color:var(--accent)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--accent-deep);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  footer{padding:28px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav>
+    <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
+    <div class="brand"><span class="logo">S</span> Copilot Studio</div>
+    <div class="ver">v1.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#concepts">2. Core concepts</a><div class="sec">Build</div><a class="lnk" href="#build">3. Build lifecycle</a><a class="lnk" href="#knowledge-actions">4. Knowledge & actions</a><a class="lnk" href="#publish">5. Publish & channels</a><div class="sec">Operate</div><a class="lnk" href="#governance">6. Governance</a><a class="lnk" href="#getstarted">7. Get started</a><a class="lnk" href="#glossary">8. Glossary</a>
+  </nav>
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Low-code &middot; Agent building</p>
+      <h1>Microsoft Copilot Studio</h1>
+      <p>A low-code platform to build, extend, publish, and govern your own AI agents &mdash; from simple Q&amp;A bots to autonomous, action-taking agents.</p>
+      <div class="pills"><span class="pill">Low-code</span><span class="pill">Topics &amp; actions</span><span class="pill">Knowledge</span><span class="pill">Multi-channel</span></div>
+    </div>
+    <div class="content">
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Copilot Studio?</h2>
+        <p><strong>Microsoft Copilot Studio</strong> is the graphical, low-code tool for building and customizing <strong>agents</strong>. Use it to create standalone agents or to extend Microsoft 365 Copilot, then publish them to the channels where your users already are.</p><div class="callout info"><b>Part of the Power Platform</b>Copilot Studio sits alongside Power Apps, Power Automate, and Dataverse &mdash; so agents can reuse your connectors, flows, and data.</div>
+      </section>
+      <section id="concepts">
+        <h2><span class="badge">2</span> Core concepts</h2>
+        <table><tr><th>Term</th><th>Meaning</th></tr><tr><td>Agent</td><td>The assistant you build &mdash; its persona, knowledge, and skills.</td></tr><tr><td>Topic</td><td>A conversational path: trigger phrases plus the nodes that respond.</td></tr><tr><td>Action</td><td>A task the agent can perform &mdash; a connector, a Power Automate flow, an API, or an MCP tool.</td></tr><tr><td>Knowledge</td><td>Sources the agent reasons over (SharePoint, websites, Dataverse, files).</td></tr><tr><td>Trigger</td><td>What starts an agent or topic (a phrase, an event, a schedule).</td></tr><tr><td>Channel</td><td>Where the agent is published (Teams, M365 Copilot, a website, custom apps).</td></tr></table>
+      </section>
+      <section id="build">
+        <h2><span class="badge">3</span> The build lifecycle</h2>
+        <p>Copilot Studio agents follow a continuous loop:</p><ol class="steps"><li><strong>Build</strong> &mdash; describe the agent in natural language; add instructions, knowledge, and actions.</li><li><strong>Publish</strong> &mdash; release it to one or more channels.</li><li><strong>Analyze</strong> &mdash; review usage, resolution rates, and transcripts.</li><li><strong>Improve</strong> &mdash; refine instructions, topics, and knowledge based on real conversations.</li></ol><div class="callout tip"><b>Generative first</b>Modern agents are largely generative: you give instructions and knowledge, and the model orchestrates responses. Add explicit topics only where you need deterministic control.</div>
+      </section>
+      <section id="knowledge-actions">
+        <h2><span class="badge">4</span> Knowledge & actions</h2>
+        <p>Two ingredients turn a chatbot into a useful agent:</p><div class="grid2"><div class="card"><h4>Knowledge</h4>Ground the agent in SharePoint sites, public websites, Dataverse tables, uploaded files, or enterprise data &mdash; so answers are accurate and current.</div><div class="card"><h4>Actions</h4>Let the agent <em>do</em> things: call 1,000+ connectors, run Power Automate flows, hit REST APIs, or invoke MCP tools.</div></div><div class="callout info"><b>MCP support</b>Copilot Studio can consume <strong>Model Context Protocol</strong> servers, so agents can use standardized external tools and data sources.</div>
+      </section>
+      <section id="publish">
+        <h2><span class="badge">5</span> Publish & channels</h2>
+        <p>One agent, many surfaces. Publish to:</p><ul><li><strong>Microsoft Teams</strong> and Microsoft 365 Copilot</li><li>A <strong>website</strong> or custom app (web chat)</li><li><strong>Custom channels</strong> via Direct Line / mobile apps</li><li>Voice and telephony scenarios</li></ul><div class="callout warn"><b>Mind authentication</b>Choose the right auth (no auth, Entra ID, or manual) per channel so the agent only exposes data the end user is allowed to see.</div>
+      </section>
+      <section id="governance">
+        <h2><span class="badge">6</span> Governance</h2>
+        <table><tr><th>Control</th><th>Purpose</th></tr><tr><td>Environments</td><td>Separate dev, test, and prod; isolate data and access.</td></tr><tr><td>Data Loss Prevention (DLP)</td><td>Restrict which connectors agents may combine.</td></tr><tr><td>Admin center</td><td>Manage agents, quotas, and sharing across the tenant.</td></tr><tr><td>Authentication</td><td>Scope agent data access to the signed-in user.</td></tr></table>
+      </section>
+      <section id="getstarted">
+        <h2><span class="badge">7</span> Get started</h2>
+        <ol class="steps"><li>Open <a href="https://copilotstudio.microsoft.com">copilotstudio.microsoft.com</a> and create an agent.</li><li>Describe its purpose; add a knowledge source and a couple of instructions.</li><li>Test in the built-in conversation pane; iterate on the instructions.</li><li>Publish to Teams or your website, then watch the analytics.</li></ol>
+      </section>
+      <section id="glossary">
+        <h2><span class="badge">8</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Agent</td><td>A configurable AI assistant built in Copilot Studio.</td></tr><tr><td>Topic</td><td>A defined conversational path with triggers and nodes.</td></tr><tr><td>Action</td><td>An operation the agent can perform via a connector, flow, API, or MCP.</td></tr><tr><td>Channel</td><td>A destination where the agent is published.</td></tr><tr><td>Environment</td><td>An isolated container for agents and their data/governance.</td></tr></table>
+      </section>
+
+    </div>
+    <footer>Microsoft Copilot Studio &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/microsoft-copilot-studio/">Microsoft Learn documentation</a>.</footer>
+  </main>
+</div>
+</body>
+</html>

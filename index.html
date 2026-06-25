@@ -7,47 +7,45 @@
 <style>
   :root{
     --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --soft:#f4f6f8;
-    --blue:#2f81f7; --navy:#0d1117; --teal:#0e7c6e; --teal-deep:#06312c;
+    --navy:#0d1117; --teal-deep:#06312c;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
   a{text-decoration:none;color:inherit}
-  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
-  .hero{background:linear-gradient(125deg,var(--navy) 0%,#13322e 55%,var(--teal-deep) 100%);color:#fff;padding:64px 0 56px}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  .hero{background:linear-gradient(125deg,var(--navy) 0%,#13322e 55%,var(--teal-deep) 100%);color:#fff;padding:60px 0 52px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 12px}
   .hero h1{margin:0 0 14px;font-size:42px;font-weight:800;letter-spacing:-.5px}
-  .hero p{font-size:18px;opacity:.92;max-width:620px;margin:0}
-  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .hero p{font-size:18px;opacity:.92;max-width:640px;margin:0}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
   .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .showcase{margin-top:38px}
-  .showcase img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 18px 50px rgba(0,0,0,.35)}
-  .showcase figcaption{margin:12px 2px 0;font-size:12.5px;opacity:.72}
-  .lib{padding:48px 0 16px}
-  .lib h2{font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 18px;font-weight:700}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .card{position:relative;display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;
-        box-shadow:0 1px 2px rgba(16,24,40,.04);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(16,24,40,.12)}
-  .card .top{height:4px;border-radius:4px;width:48px;margin-bottom:18px}
-  .card.gh .top{background:var(--blue)}
-  .card.fa .top{background:var(--teal)}
-  .card .ico{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-  .card.gh .ico{background:#eef4ff}
-  .card.fa .ico{background:#e7f5f1}
-  .card .ico svg{width:30px;height:30px}
-  .card h3{margin:0 0 6px;font-size:21px}
-  .card .sub{color:var(--muted);font-size:14.5px;margin:0 0 16px;flex:1}
-  .card .pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
-  .card .pills span{font-size:12px;font-weight:600;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:3px 10px}
-  .card .go{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14.5px}
-  .card.gh .go{color:var(--blue)}
-  .card.fa .go{color:var(--teal)}
-  .card .go svg{width:16px;height:16px;transition:transform .15s ease}
+  .showcase{margin-top:34px;max-width:560px}
+  .showcase img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 38px rgba(0,0,0,.32)}
+  .showcase figcaption{margin:10px 2px 0;font-size:12px;opacity:.7}
+  .lib{padding:44px 0 10px}
+  .grp{margin-bottom:34px}
+  .grp .gh{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+  .grp .gh h2{font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);margin:0;font-weight:800}
+  .grp .gh span{font-size:13px;color:var(--muted)}
+  .grp .gl{height:2px;background:linear-gradient(90deg,var(--line),transparent);margin:8px 0 18px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
+  .card{--c:#2f81f7;position:relative;display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:15px;padding:22px 22px 18px;
+        box-shadow:0 1px 2px rgba(16,24,40,.04);transition:transform .15s ease,box-shadow .15s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(16,24,40,.13)}
+  .card .top{height:4px;width:44px;border-radius:4px;background:var(--c);margin-bottom:15px}
+  .card .ico{width:46px;height:46px;border-radius:12px;background:var(--c);display:flex;align-items:center;justify-content:center;
+             color:#fff;font-weight:800;font-size:16px;letter-spacing:.02em;margin-bottom:14px}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .card .sub{color:var(--muted);font-size:13.5px;margin:0 0 14px;flex:1;line-height:1.5}
+  .card .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px}
+  .card .pills span{font-size:11.5px;font-weight:600;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:2px 9px}
+  .card .go{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;color:var(--c)}
+  .card .go svg{width:15px;height:15px;transition:transform .15s ease}
   .card:hover .go svg{transform:translateX(3px)}
-  footer{color:var(--muted);font-size:13px;padding:40px 0 60px}
+  footer{color:var(--muted);font-size:13px;padding:34px 0 60px;border-top:1px solid var(--line);margin-top:20px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-  @media(max-width:760px){.cards{grid-template-columns:1fr}.hero h1{font-size:34px}}
+  @media(max-width:640px){.hero h1{font-size:34px}}
 </style>
 </head>
 <body>
@@ -55,46 +53,133 @@
     <div class="wrap">
       <p class="eyebrow">Personal Learning Library</p>
       <h1>Training &amp; Development</h1>
-      <p>A living collection of hands-on technical manuals &mdash; practical, beginner-friendly, and built to get you productive fast.</p>
+      <p>A living collection of hands-on technical manuals on the Microsoft platform &mdash; practical, beginner-friendly, and built to get you productive fast.</p>
       <div class="meta">
-        <span class="chip">2 manuals</span>
-        <span class="chip">Hands-on &amp; command-driven</span>
+        <span class="chip">12 manuals</span>
+        <span class="chip">Grounded in Microsoft Learn</span>
         <span class="chip">Self-contained</span>
       </div>
       <figure class="showcase">
         <img src="assets/frontier-transformation.png" alt="Empowering Frontier Transformation — the Microsoft platform stack: Microsoft 365 Copilot and Agent 365 around Copilot Studio, GitHub Copilot, and Microsoft IQ (Work IQ, Foundry IQ, Fabric IQ), on Microsoft Azure and Microsoft Security.">
-        <figcaption>Empowering Frontier Transformation — the Microsoft platform these manuals build toward.</figcaption>
+        <figcaption>Empowering Frontier Transformation &mdash; the Microsoft platform these manuals map to.</figcaption>
       </figure>
     </div>
   </div>
 
   <div class="wrap lib">
-    <h2>Manuals</h2>
-    <div class="cards">
 
-      <a class="card gh" href="github/index.html">
-        <div class="top"></div>
-        <div class="ico">
-          <svg viewBox="0 0 16 16" fill="#1f2328"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        </div>
-        <h3>GitHub Training Manual</h3>
-        <p class="sub">Zero to confident contributor: repositories, Git, branching, pull requests, forking, Actions, and the CLI.</p>
-        <div class="pills"><span>Git</span><span>Pull requests</span><span>Actions</span><span>gh CLI</span></div>
-        <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-      </a>
-
-      <a class="card fa" href="fabric/index.html">
-        <div class="top"></div>
-        <div class="ico">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0e7c6e"/></linearGradient></defs><rect x="1" y="1" width="30" height="30" rx="8" fill="url(#fg)"/><path d="M11 8.5h11v3.3h-7.3v3H21v3.2h-6.3V23.5H11z" fill="#fff"/></svg>
-        </div>
-        <h3>Microsoft Fabric Manual</h3>
-        <p class="sub">OneLake, lakehouses, warehouses, pipelines, notebooks, Power BI Direct Lake, Real-Time Intelligence, and governance.</p>
-        <div class="pills"><span>OneLake</span><span>Lakehouse</span><span>KQL</span><span>Direct Lake</span></div>
-        <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-      </a>
-
+    <div class="grp">
+      <div class="gh"><h2>Copilot &amp; Agents</h2><span>AI assistants and the tools to build them</span></div>
+      <div class="gl"></div>
+      <div class="cards">
+        <a class="card" style="--c:#8b5cf6" href="m365-copilot/index.html">
+          <div class="top"></div><div class="ico">M</div>
+          <h3>Microsoft 365 Copilot</h3>
+          <p class="sub">AI woven into Word, Excel, PowerPoint, Outlook &amp; Teams, grounded in your work data.</p>
+          <div class="pills"><span>Graph grounding</span><span>Agents</span><span>Copilot Chat</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#7c3aed" href="copilot-studio/index.html">
+          <div class="top"></div><div class="ico">S</div>
+          <h3>Copilot Studio</h3>
+          <p class="sub">Low-code platform to build, publish and govern your own AI agents.</p>
+          <div class="pills"><span>Low-code</span><span>Topics &amp; actions</span><span>Channels</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#1f883d" href="github-copilot/index.html">
+          <div class="top"></div><div class="ico">GC</div>
+          <h3>GitHub Copilot</h3>
+          <p class="sub">AI pair programmer, from inline completions to autonomous agent mode.</p>
+          <div class="pills"><span>Completion</span><span>Chat</span><span>Agent mode</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#5b3fd4" href="agent-365/index.html">
+          <div class="top"></div><div class="ico">A</div>
+          <h3>Agent 365</h3>
+          <p class="sub">The control plane to register, govern and secure every AI agent.</p>
+          <div class="pills"><span>Registry</span><span>Govern</span><span>Secure</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+      </div>
     </div>
+
+    <div class="grp">
+      <div class="gh"><h2>Microsoft IQ</h2><span>The enterprise intelligence layer</span></div>
+      <div class="gl"></div>
+      <div class="cards">
+        <a class="card" style="--c:#2563eb" href="microsoft-iq/index.html">
+          <div class="top"></div><div class="ico">IQ</div>
+          <h3>Microsoft IQ</h3>
+          <p class="sub">The intelligence layer that grounds agents in a complete view of your organization.</p>
+          <div class="pills"><span>Fabric IQ</span><span>Work IQ</span><span>Foundry IQ</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#c026d3" href="work-iq/index.html">
+          <div class="top"></div><div class="ico">W</div>
+          <h3>Work IQ</h3>
+          <p class="sub">Workplace intelligence over how your organization actually works.</p>
+          <div class="pills"><span>Microsoft 365</span><span>Permission-aware</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#4f46e5" href="foundry-iq/index.html">
+          <div class="top"></div><div class="ico">Fo</div>
+          <h3>Foundry IQ</h3>
+          <p class="sub">Knowledge layer that grounds Foundry agents in your policies &amp; documents.</p>
+          <div class="pills"><span>Azure AI Foundry</span><span>Knowledge</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#109e8e" href="fabric-iq/index.html">
+          <div class="top"></div><div class="ico">Fb</div>
+          <h3>Fabric IQ</h3>
+          <p class="sub">Semantic layer that models your business entities over OneLake &amp; Power BI.</p>
+          <div class="pills"><span>Ontology</span><span>Data agents</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh"><h2>Platform &amp; Security</h2><span>The cloud foundation everything runs on</span></div>
+      <div class="gl"></div>
+      <div class="cards">
+        <a class="card" style="--c:#0078d4" href="azure/index.html">
+          <div class="top"></div><div class="ico">Az</div>
+          <h3>Microsoft Azure</h3>
+          <p class="sub">Microsoft's cloud platform: compute, storage, networking and AI at global scale.</p>
+          <div class="pills"><span>IaaS / PaaS</span><span>70+ regions</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#0a6e8a" href="security/index.html">
+          <div class="top"></div><div class="ico">Se</div>
+          <h3>Microsoft Security</h3>
+          <p class="sub">Unified Zero Trust security across identity, endpoints, email and data.</p>
+          <div class="pills"><span>Defender XDR</span><span>Sentinel</span><span>Entra</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh"><h2>Foundations</h2><span>Core developer &amp; data skills</span></div>
+      <div class="gl"></div>
+      <div class="cards">
+        <a class="card" style="--c:#2f81f7" href="github/index.html">
+          <div class="top"></div><div class="ico">G</div>
+          <h3>GitHub (Git)</h3>
+          <p class="sub">Zero to confident contributor: Git, branches, pull requests &amp; Actions.</p>
+          <div class="pills"><span>Git</span><span>Pull requests</span><span>Actions</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+        <a class="card" style="--c:#0e7c6e" href="fabric/index.html">
+          <div class="top"></div><div class="ico">Fa</div>
+          <h3>Microsoft Fabric</h3>
+          <p class="sub">End-to-end analytics on OneLake: lakehouse, warehouse &amp; Real-Time Intelligence.</p>
+          <div class="pills"><span>OneLake</span><span>Lakehouse</span><span>KQL</span></div>
+          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        </a>
+      </div>
+    </div>
+
   </div>
 
   <footer>
