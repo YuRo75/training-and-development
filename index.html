@@ -9,37 +9,42 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);
-       height:100vh;display:flex;flex-direction:column;padding:clamp(16px,2.4vh,30px) clamp(20px,3vw,52px);gap:clamp(12px,2vh,22px);overflow:hidden}
+       min-height:100vh;display:flex;flex-direction:column;
+       padding:clamp(16px,2.4vh,28px) clamp(20px,3vw,52px);gap:clamp(14px,2.2vh,22px);overflow:hidden}
   a{text-decoration:none;color:inherit}
 
-  header{display:flex;align-items:center;gap:20px;flex:none}
-  header img{width:clamp(112px,12vw,168px);height:auto;border-radius:10px;border:1px solid var(--line);flex:none}
-  header .t .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:10.5px;font-weight:600;color:var(--muted);margin-bottom:5px}
-  header .t h1{font-size:clamp(20px,2.6vw,28px);font-weight:800;letter-spacing:-.4px;line-height:1.1}
-  header .t p{font-size:13px;color:var(--muted);margin-top:4px;max-width:560px}
+  header{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);flex:none}
+  header img{width:clamp(150px,15vw,210px);height:auto;border-radius:12px;border:1px solid var(--line);
+             box-shadow:0 6px 18px rgba(16,24,40,.10);flex:none}
+  header .t .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  header .t h1{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.5px;line-height:1.08}
+  header .t p{font-size:14px;color:var(--muted);margin-top:8px;max-width:600px;line-height:1.5}
+  header .t .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  header .t .chips span{font-size:11.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 12px}
 
-  main{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(8px,1.4vh,16px)}
-  .tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
-        border:1px solid var(--line);border-radius:12px;padding:clamp(10px,1.6vh,18px);background:#fff;overflow:hidden;
+  main{flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(9px,1.3vh,14px)}
+  .tile{position:relative;display:flex;flex-direction:column;
+        border:1px solid var(--line);border-radius:11px;padding:13px 15px 13px 18px;background:#fff;overflow:hidden;
         transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
   .tile::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--c)}
   .tile:hover{transform:translateY(-2px);border-color:var(--c);box-shadow:0 8px 20px rgba(16,24,40,.08)}
-  .tile .k{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--c);margin-bottom:auto}
-  .tile h3{font-size:clamp(13px,1.5vw,16px);font-weight:700;line-height:1.2;margin-bottom:3px}
-  .tile p{font-size:11.5px;color:var(--muted);line-height:1.35}
+  .tile .k{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--c);margin-bottom:7px}
+  .tile h3{font-size:15px;font-weight:700;line-height:1.15;margin-bottom:2px}
+  .tile p{font-size:11.5px;color:var(--muted);line-height:1.3}
 
-  footer{flex:none;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+  footer{flex:none;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:auto;padding-top:4px}
   @media(max-width:920px){main{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:620px){body{overflow:auto;height:auto}main{grid-template-columns:repeat(2,1fr)}header{flex-wrap:wrap}}
 </style>
 </head>
 <body>
   <header>
-    <img src="assets/frontier-transformation.png" alt="Microsoft Frontier Transformation stack">
+    <img src="assets/frontier-transformation.png" alt="Microsoft Frontier Transformation stack — Microsoft 365 Copilot and Agent 365 around Copilot Studio, GitHub Copilot and Microsoft IQ (Work IQ, Foundry IQ, Fabric IQ), on Microsoft Azure and Microsoft Security.">
     <div class="t">
       <div class="eyebrow">Personal Learning Library</div>
       <h1>Training &amp; Development</h1>
-      <p>Hands-on manuals across the Microsoft platform &mdash; grounded in Microsoft Learn.</p>
+      <p>A living collection of hands-on technical manuals across the Microsoft platform &mdash; practical, beginner-friendly, and built to get you productive fast.</p>
+      <div class="chips"><span>12 manuals</span><span>Grounded in Microsoft Learn</span><span>Self-contained</span></div>
     </div>
   </header>
 
