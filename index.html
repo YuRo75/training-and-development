@@ -5,187 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Training &amp; Development</title>
 <style>
-  :root{
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --soft:#f4f6f8;
-    --navy:#0d1117; --teal-deep:#06312c;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  :root{--ink:#1f2328;--muted:#6b747c;--line:#e6e9ec;--bg:#fbfbfc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);
+       height:100vh;display:flex;flex-direction:column;padding:clamp(16px,2.4vh,30px) clamp(20px,3vw,52px);gap:clamp(12px,2vh,22px);overflow:hidden}
   a{text-decoration:none;color:inherit}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-  .hero{background:linear-gradient(125deg,var(--navy) 0%,#13322e 55%,var(--teal-deep) 100%);color:#fff;padding:60px 0 52px}
-  .hero .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 12px}
-  .hero h1{margin:0 0 14px;font-size:42px;font-weight:800;letter-spacing:-.5px}
-  .hero p{font-size:18px;opacity:.92;max-width:640px;margin:0}
-  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-  .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .showcase{margin:0 0 26px;max-width:300px}
-  .showcase img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.18);box-shadow:0 14px 38px rgba(0,0,0,.32)}
-  .showcase figcaption{margin:10px 2px 0;font-size:12px;opacity:.7}
-  .lib{padding:44px 0 10px}
-  .grp{margin-bottom:34px}
-  .grp .gh{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
-  .grp .gh h2{font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);margin:0;font-weight:800}
-  .grp .gh span{font-size:13px;color:var(--muted)}
-  .grp .gl{height:2px;background:linear-gradient(90deg,var(--line),transparent);margin:8px 0 18px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
-  .card{--c:#2f81f7;position:relative;display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:15px;padding:22px 22px 18px;
-        box-shadow:0 1px 2px rgba(16,24,40,.04);transition:transform .15s ease,box-shadow .15s ease}
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(16,24,40,.13)}
-  .card .top{height:4px;width:44px;border-radius:4px;background:var(--c);margin-bottom:15px}
-  .card .ico{width:46px;height:46px;border-radius:12px;background:var(--c);display:flex;align-items:center;justify-content:center;
-             color:#fff;font-weight:800;font-size:16px;letter-spacing:.02em;margin-bottom:14px}
-  .card h3{margin:0 0 6px;font-size:18px}
-  .card .sub{color:var(--muted);font-size:13.5px;margin:0 0 14px;flex:1;line-height:1.5}
-  .card .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px}
-  .card .pills span{font-size:11.5px;font-weight:600;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:2px 9px}
-  .card .go{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;color:var(--c)}
-  .card .go svg{width:15px;height:15px;transition:transform .15s ease}
-  .card:hover .go svg{transform:translateX(3px)}
-  footer{color:var(--muted);font-size:13px;padding:34px 0 60px;border-top:1px solid var(--line);margin-top:20px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-  @media(max-width:640px){.hero h1{font-size:34px}}
+
+  header{display:flex;align-items:center;gap:20px;flex:none}
+  header img{width:clamp(112px,12vw,168px);height:auto;border-radius:10px;border:1px solid var(--line);flex:none}
+  header .t .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:10.5px;font-weight:600;color:var(--muted);margin-bottom:5px}
+  header .t h1{font-size:clamp(20px,2.6vw,28px);font-weight:800;letter-spacing:-.4px;line-height:1.1}
+  header .t p{font-size:13px;color:var(--muted);margin-top:4px;max-width:560px}
+
+  main{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(8px,1.4vh,16px)}
+  .tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+        border:1px solid var(--line);border-radius:12px;padding:clamp(10px,1.6vh,18px);background:#fff;overflow:hidden;
+        transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+  .tile::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--c)}
+  .tile:hover{transform:translateY(-2px);border-color:var(--c);box-shadow:0 8px 20px rgba(16,24,40,.08)}
+  .tile .k{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--c);margin-bottom:auto}
+  .tile h3{font-size:clamp(13px,1.5vw,16px);font-weight:700;line-height:1.2;margin-bottom:3px}
+  .tile p{font-size:11.5px;color:var(--muted);line-height:1.35}
+
+  footer{flex:none;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+  @media(max-width:920px){main{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:620px){body{overflow:auto;height:auto}main{grid-template-columns:repeat(2,1fr)}header{flex-wrap:wrap}}
 </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="wrap">
-      <figure class="showcase">
-        <img src="assets/frontier-transformation.png" alt="Empowering Frontier Transformation — the Microsoft platform stack: Microsoft 365 Copilot and Agent 365 around Copilot Studio, GitHub Copilot, and Microsoft IQ (Work IQ, Foundry IQ, Fabric IQ), on Microsoft Azure and Microsoft Security.">
-      </figure>
-      <p class="eyebrow">Personal Learning Library</p>
+  <header>
+    <img src="assets/frontier-transformation.png" alt="Microsoft Frontier Transformation stack">
+    <div class="t">
+      <div class="eyebrow">Personal Learning Library</div>
       <h1>Training &amp; Development</h1>
-      <p>A living collection of hands-on technical manuals on the Microsoft platform &mdash; practical, beginner-friendly, and built to get you productive fast.</p>
-      <div class="meta">
-        <span class="chip">12 manuals</span>
-        <span class="chip">Grounded in Microsoft Learn</span>
-        <span class="chip">Self-contained</span>
-      </div>
+      <p>Hands-on manuals across the Microsoft platform &mdash; grounded in Microsoft Learn.</p>
     </div>
-  </div>
+  </header>
 
-  <div class="wrap lib">
+  <main>
+    <a class="tile" style="--c:#8b5cf6" href="m365-copilot/index.html"><span class="k">Copilot</span><h3>Microsoft 365 Copilot</h3><p>AI across your M365 apps.</p></a>
+    <a class="tile" style="--c:#7c3aed" href="copilot-studio/index.html"><span class="k">Copilot</span><h3>Copilot Studio</h3><p>Build &amp; govern agents.</p></a>
+    <a class="tile" style="--c:#1f883d" href="github-copilot/index.html"><span class="k">Copilot</span><h3>GitHub Copilot</h3><p>AI pair programmer.</p></a>
+    <a class="tile" style="--c:#5b3fd4" href="agent-365/index.html"><span class="k">Agents</span><h3>Agent 365</h3><p>Control plane for agents.</p></a>
 
-    <div class="grp">
-      <div class="gh"><h2>Copilot &amp; Agents</h2><span>AI assistants and the tools to build them</span></div>
-      <div class="gl"></div>
-      <div class="cards">
-        <a class="card" style="--c:#8b5cf6" href="m365-copilot/index.html">
-          <div class="top"></div><div class="ico">M</div>
-          <h3>Microsoft 365 Copilot</h3>
-          <p class="sub">AI woven into Word, Excel, PowerPoint, Outlook &amp; Teams, grounded in your work data.</p>
-          <div class="pills"><span>Graph grounding</span><span>Agents</span><span>Copilot Chat</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#7c3aed" href="copilot-studio/index.html">
-          <div class="top"></div><div class="ico">S</div>
-          <h3>Copilot Studio</h3>
-          <p class="sub">Low-code platform to build, publish and govern your own AI agents.</p>
-          <div class="pills"><span>Low-code</span><span>Topics &amp; actions</span><span>Channels</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#1f883d" href="github-copilot/index.html">
-          <div class="top"></div><div class="ico">GC</div>
-          <h3>GitHub Copilot</h3>
-          <p class="sub">AI pair programmer, from inline completions to autonomous agent mode.</p>
-          <div class="pills"><span>Completion</span><span>Chat</span><span>Agent mode</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#5b3fd4" href="agent-365/index.html">
-          <div class="top"></div><div class="ico">A</div>
-          <h3>Agent 365</h3>
-          <p class="sub">The control plane to register, govern and secure every AI agent.</p>
-          <div class="pills"><span>Registry</span><span>Govern</span><span>Secure</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-      </div>
-    </div>
+    <a class="tile" style="--c:#2563eb" href="microsoft-iq/index.html"><span class="k">Microsoft IQ</span><h3>Microsoft IQ</h3><p>The intelligence layer.</p></a>
+    <a class="tile" style="--c:#c026d3" href="work-iq/index.html"><span class="k">Microsoft IQ</span><h3>Work IQ</h3><p>Workplace context.</p></a>
+    <a class="tile" style="--c:#4f46e5" href="foundry-iq/index.html"><span class="k">Microsoft IQ</span><h3>Foundry IQ</h3><p>Knowledge for agents.</p></a>
+    <a class="tile" style="--c:#109e8e" href="fabric-iq/index.html"><span class="k">Microsoft IQ</span><h3>Fabric IQ</h3><p>Semantics over data.</p></a>
 
-    <div class="grp">
-      <div class="gh"><h2>Microsoft IQ</h2><span>The enterprise intelligence layer</span></div>
-      <div class="gl"></div>
-      <div class="cards">
-        <a class="card" style="--c:#2563eb" href="microsoft-iq/index.html">
-          <div class="top"></div><div class="ico">IQ</div>
-          <h3>Microsoft IQ</h3>
-          <p class="sub">The intelligence layer that grounds agents in a complete view of your organization.</p>
-          <div class="pills"><span>Fabric IQ</span><span>Work IQ</span><span>Foundry IQ</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#c026d3" href="work-iq/index.html">
-          <div class="top"></div><div class="ico">W</div>
-          <h3>Work IQ</h3>
-          <p class="sub">Workplace intelligence over how your organization actually works.</p>
-          <div class="pills"><span>Microsoft 365</span><span>Permission-aware</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#4f46e5" href="foundry-iq/index.html">
-          <div class="top"></div><div class="ico">Fo</div>
-          <h3>Foundry IQ</h3>
-          <p class="sub">Knowledge layer that grounds Foundry agents in your policies &amp; documents.</p>
-          <div class="pills"><span>Azure AI Foundry</span><span>Knowledge</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#109e8e" href="fabric-iq/index.html">
-          <div class="top"></div><div class="ico">Fb</div>
-          <h3>Fabric IQ</h3>
-          <p class="sub">Semantic layer that models your business entities over OneLake &amp; Power BI.</p>
-          <div class="pills"><span>Ontology</span><span>Data agents</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="gh"><h2>Platform &amp; Security</h2><span>The cloud foundation everything runs on</span></div>
-      <div class="gl"></div>
-      <div class="cards">
-        <a class="card" style="--c:#0078d4" href="azure/index.html">
-          <div class="top"></div><div class="ico">Az</div>
-          <h3>Microsoft Azure</h3>
-          <p class="sub">Microsoft's cloud platform: compute, storage, networking and AI at global scale.</p>
-          <div class="pills"><span>IaaS / PaaS</span><span>70+ regions</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#0a6e8a" href="security/index.html">
-          <div class="top"></div><div class="ico">Se</div>
-          <h3>Microsoft Security</h3>
-          <p class="sub">Unified Zero Trust security across identity, endpoints, email and data.</p>
-          <div class="pills"><span>Defender XDR</span><span>Sentinel</span><span>Entra</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="gh"><h2>Foundations</h2><span>Core developer &amp; data skills</span></div>
-      <div class="gl"></div>
-      <div class="cards">
-        <a class="card" style="--c:#2f81f7" href="github/index.html">
-          <div class="top"></div><div class="ico">G</div>
-          <h3>GitHub (Git)</h3>
-          <p class="sub">Zero to confident contributor: Git, branches, pull requests &amp; Actions.</p>
-          <div class="pills"><span>Git</span><span>Pull requests</span><span>Actions</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-        <a class="card" style="--c:#0e7c6e" href="fabric/index.html">
-          <div class="top"></div><div class="ico">Fa</div>
-          <h3>Microsoft Fabric</h3>
-          <p class="sub">End-to-end analytics on OneLake: lakehouse, warehouse &amp; Real-Time Intelligence.</p>
-          <div class="pills"><span>OneLake</span><span>Lakehouse</span><span>KQL</span></div>
-          <span class="go">Open manual <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
-        </a>
-      </div>
-    </div>
-
-  </div>
+    <a class="tile" style="--c:#0078d4" href="azure/index.html"><span class="k">Platform</span><h3>Microsoft Azure</h3><p>The cloud foundation.</p></a>
+    <a class="tile" style="--c:#0a6e8a" href="security/index.html"><span class="k">Security</span><h3>Microsoft Security</h3><p>Zero Trust, end to end.</p></a>
+    <a class="tile" style="--c:#2f81f7" href="github/index.html"><span class="k">Foundations</span><h3>GitHub (Git)</h3><p>Git, PRs &amp; Actions.</p></a>
+    <a class="tile" style="--c:#0e7c6e" href="fabric/index.html"><span class="k">Foundations</span><h3>Microsoft Fabric</h3><p>Analytics on OneLake.</p></a>
+  </main>
 
   <footer>
-    <div class="wrap">
-      <span>Training &amp; Development · Private library · Updated 25 June 2026</span>
-      <span>Built by Yuri Roos</span>
-    </div>
+    <span>Training &amp; Development</span>
+    <span>Yuri Roos &middot; 2026</span>
   </footer>
 </body>
 </html>
