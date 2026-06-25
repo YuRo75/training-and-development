@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">A</span> Agent 365</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#why">2. Why it exists</a><div class="sec">Capabilities</div><a class="lnk" href="#pillars">3. What it provides</a><a class="lnk" href="#registry">4. Agent Registry</a><div class="sec">Operate</div><a class="lnk" href="#lifecycle">5. Agent lifecycle</a><a class="lnk" href="#glossary">6. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#why">2. Why it exists</a><div class="sec">Capabilities</div><a class="lnk" href="#pillars">3. What it provides</a><a class="lnk" href="#registry">4. Agent Registry</a><div class="sec">Operate</div><a class="lnk" href="#lifecycle">5. Agent lifecycle</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">7. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -100,6 +103,10 @@
       <section id="glossary">
         <h2><span class="badge">6</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Control plane</td><td>The central place to manage agents (vs. running them).</td></tr><tr><td>Agent Registry</td><td>The central inventory of an organization's agents.</td></tr><tr><td>Agent identity</td><td>A governed identity (Entra) assigned to an agent.</td></tr><tr><td>Agent sprawl</td><td>Uncontrolled proliferation of ungoverned agents.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">7</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-agent-365/overview" target="_blank" rel="noopener">Microsoft Agent 365 overview</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview</a></li></ul>
       </section>
 
     </div>

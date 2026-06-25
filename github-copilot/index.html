@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">G</span> GitHub Copilot</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Capabilities</div><a class="lnk" href="#modes">2. Ways to use it</a><a class="lnk" href="#agent-mode">3. Agent mode</a><a class="lnk" href="#where">4. Where it runs</a><a class="lnk" href="#context">5. Giving context</a><div class="sec">Operate</div><a class="lnk" href="#plans">6. Plans & admin</a><a class="lnk" href="#tips">7. Tips</a><a class="lnk" href="#glossary">8. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Capabilities</div><a class="lnk" href="#modes">2. Ways to use it</a><a class="lnk" href="#agent-mode">3. Agent mode</a><a class="lnk" href="#where">4. Where it runs</a><a class="lnk" href="#context">5. Giving context</a><div class="sec">Operate</div><a class="lnk" href="#plans">6. Plans & admin</a><a class="lnk" href="#tips">7. Tips</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">9. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -108,6 +111,10 @@
       <section id="glossary">
         <h2><span class="badge">8</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Completion</td><td>Inline code suggestion as you type.</td></tr><tr><td>Ask mode</td><td>Conversational chat that answers but doesn't change files.</td></tr><tr><td>Agent mode</td><td>Autonomous, iterative multi-step task execution.</td></tr><tr><td>Plan agent</td><td>Produces an implementation plan before changes.</td></tr><tr><td>MCP</td><td>Model Context Protocol &mdash; standardized tools/data for the AI.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">9</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://docs.github.com/copilot" target="_blank" rel="noopener">GitHub Copilot documentation</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-get-started" target="_blank" rel="noopener">Get started with GitHub Copilot (Visual Studio)</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-agent-mode" target="_blank" rel="noopener">GitHub Copilot agent mode</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-plan-agent" target="_blank" rel="noopener">GitHub Copilot plan agent</a></li><li><a href="https://learn.microsoft.com/ssms/github-copilot/overview" target="_blank" rel="noopener">GitHub Copilot in SQL Server Management Studio</a></li></ul>
       </section>
 
     </div>

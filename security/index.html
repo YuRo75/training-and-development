@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">Se</span> Microsoft Security</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Threat protection</div><a class="lnk" href="#defender-xdr">2. Defender XDR</a><a class="lnk" href="#sentinel">3. Sentinel (SIEM)</a><div class="sec">Identity & data</div><a class="lnk" href="#entra">4. Entra (identity)</a><a class="lnk" href="#purview">5. Purview (data)</a><a class="lnk" href="#intune">6. Intune (devices)</a><div class="sec">Strategy</div><a class="lnk" href="#zero-trust">7. Zero Trust</a><a class="lnk" href="#glossary">8. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Threat protection</div><a class="lnk" href="#defender-xdr">2. Defender XDR</a><a class="lnk" href="#sentinel">3. Sentinel (SIEM)</a><div class="sec">Identity & data</div><a class="lnk" href="#entra">4. Entra (identity)</a><a class="lnk" href="#purview">5. Purview (data)</a><a class="lnk" href="#intune">6. Intune (devices)</a><div class="sec">Strategy</div><a class="lnk" href="#zero-trust">7. Zero Trust</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">9. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -108,6 +111,10 @@
       <section id="glossary">
         <h2><span class="badge">8</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>XDR</td><td>Extended Detection and Response across multiple domains.</td></tr><tr><td>SIEM</td><td>Security Information and Event Management (Sentinel).</td></tr><tr><td>Zero Trust</td><td>Security model: verify explicitly, least privilege, assume breach.</td></tr><tr><td>Conditional Access</td><td>Entra policies that gate access per sign-in.</td></tr><tr><td>DLP</td><td>Data Loss Prevention &mdash; stops sensitive data leaving.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">9</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/security/" target="_blank" rel="noopener">Microsoft Security documentation</a></li><li><a href="https://learn.microsoft.com/defender-xdr/microsoft-365-defender" target="_blank" rel="noopener">Microsoft Defender XDR</a></li><li><a href="https://learn.microsoft.com/azure/sentinel/overview" target="_blank" rel="noopener">What is Microsoft Sentinel?</a></li><li><a href="https://learn.microsoft.com/defender-endpoint/microsoft-defender-endpoint" target="_blank" rel="noopener">Microsoft Defender for Endpoint</a></li><li><a href="https://learn.microsoft.com/security/zero-trust/zero-trust-overview" target="_blank" rel="noopener">Zero Trust overview</a></li><li><a href="https://learn.microsoft.com/entra/fundamentals/whatis" target="_blank" rel="noopener">Microsoft Entra fundamentals</a></li><li><a href="https://learn.microsoft.com/purview/purview" target="_blank" rel="noopener">Microsoft Purview</a></li><li><a href="https://learn.microsoft.com/mem/intune/fundamentals/what-is-intune" target="_blank" rel="noopener">What is Microsoft Intune?</a></li></ul>
       </section>
 
     </div>

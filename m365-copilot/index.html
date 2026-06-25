@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">C</span> Microsoft 365 Copilot</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#how">2. How it works</a><div class="sec">Using Copilot</div><a class="lnk" href="#surfaces">3. Where you use it</a><a class="lnk" href="#chat">4. Copilot Chat</a><a class="lnk" href="#agents">5. Agents</a><div class="sec">Operate</div><a class="lnk" href="#admin">6. Admin & readiness</a><a class="lnk" href="#getstarted">7. Get started</a><a class="lnk" href="#glossary">8. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#how">2. How it works</a><div class="sec">Using Copilot</div><a class="lnk" href="#surfaces">3. Where you use it</a><a class="lnk" href="#chat">4. Copilot Chat</a><a class="lnk" href="#agents">5. Agents</a><div class="sec">Operate</div><a class="lnk" href="#admin">6. Admin & readiness</a><a class="lnk" href="#getstarted">7. Get started</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">9. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -108,6 +111,10 @@
       <section id="glossary">
         <h2><span class="badge">8</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Grounding</td><td>Retrieving your tenant data to make a prompt specific to your work.</td></tr><tr><td>Microsoft Graph</td><td>The API/data fabric over your Microsoft 365 content and signals.</td></tr><tr><td>Semantic Index</td><td>The index that powers relevant, permission-trimmed retrieval.</td></tr><tr><td>Agent</td><td>A customized assistant that adds knowledge, skills, or actions to Copilot.</td></tr><tr><td>Agent Store</td><td>Where users discover and add agents inside Copilot.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">9</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-overview" target="_blank" rel="noopener">Microsoft 365 Copilot overview</a></li><li><a href="https://learn.microsoft.com/microsoft-365/copilot/copilot-for-microsoft-365-admin" target="_blank" rel="noopener">Copilot for admins in Microsoft 365 admin centers</a></li><li><a href="https://learn.microsoft.com/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide" target="_blank" rel="noopener">Agents admin guide for Microsoft 365</a></li><li><a href="https://learn.microsoft.com/microsoft-365/copilot/extensibility/manage" target="_blank" rel="noopener">Manage agents for Microsoft 365 Copilot</a></li><li><a href="https://learn.microsoft.com/microsoft-365/admin/manage/manage-copilot-agents-integrated-apps" target="_blank" rel="noopener">Manage agents in the Microsoft 365 admin center</a></li></ul>
       </section>
 
     </div>

@@ -57,6 +57,9 @@
   .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
   .card h4{margin:0 0 6px;font-size:15px}
+  .srclist{margin:6px 0 0;padding-left:20px}
+  .srclist li{margin:7px 0;font-size:14.5px}
+  .srclist a{font-weight:600;word-break:break-word}
   footer{padding:28px 56px;color:var(--muted);font-size:13px}
   @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
 </style>
@@ -67,7 +70,7 @@
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">S</span> Copilot Studio</div>
     <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#concepts">2. Core concepts</a><div class="sec">Build</div><a class="lnk" href="#build">3. Build lifecycle</a><a class="lnk" href="#knowledge-actions">4. Knowledge & actions</a><a class="lnk" href="#publish">5. Publish & channels</a><div class="sec">Operate</div><a class="lnk" href="#governance">6. Governance</a><a class="lnk" href="#getstarted">7. Get started</a><a class="lnk" href="#glossary">8. Glossary</a>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#concepts">2. Core concepts</a><div class="sec">Build</div><a class="lnk" href="#build">3. Build lifecycle</a><a class="lnk" href="#knowledge-actions">4. Knowledge & actions</a><a class="lnk" href="#publish">5. Publish & channels</a><div class="sec">Operate</div><a class="lnk" href="#governance">6. Governance</a><a class="lnk" href="#getstarted">7. Get started</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">9. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -108,6 +111,10 @@
       <section id="glossary">
         <h2><span class="badge">8</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Agent</td><td>A configurable AI assistant built in Copilot Studio.</td></tr><tr><td>Topic</td><td>A defined conversational path with triggers and nodes.</td></tr><tr><td>Action</td><td>An operation the agent can perform via a connector, flow, API, or MCP.</td></tr><tr><td>Channel</td><td>A destination where the agent is published.</td></tr><tr><td>Environment</td><td>An isolated container for agents and their data/governance.</td></tr></table>
+      </section>
+      <section id="sources">
+        <h2><span class="badge">9</span> Sources</h2>
+        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/" target="_blank" rel="noopener">Microsoft Copilot Studio documentation</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/overview" target="_blank" rel="noopener">Copilot Studio agents experience overview</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/guidance/architecture-overview" target="_blank" rel="noopener">Define your solution architecture</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/publication-fundamentals-publish-channels" target="_blank" rel="noopener">Publish and configure channels</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/guidance/channels" target="_blank" rel="noopener">Channels guidance</a></li></ul>
       </section>
 
     </div>
