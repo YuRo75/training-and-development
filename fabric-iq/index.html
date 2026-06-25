@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fabric IQ</title>
 <style>
-  :root{
-    --accent:#109e8e; --accent-deep:#06312c; --accent-soft:#ecfdf7;
-    --green:#107c41; --amber:#d29922;
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
-  }
+  :root{--accent:#109e8e;--accent-deep:#06312c;--accent-soft:#ecfdf7;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
@@ -19,28 +16,29 @@
   nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
   nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
   nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
   nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
-  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
   nav a.lnk:hover{background:#e7edf1;text-decoration:none}
-  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
   main{padding:0 0 100px}
-  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
   .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
-  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
   .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .content{padding:14px 56px}
-  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
   section:last-child{border-bottom:none}
-  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2{font-size:24px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
   h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
-  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  h3{font-size:17.5px;margin:22px 0 6px;color:var(--ink)}
   p,li{font-size:15px}
   code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
-  pre code{background:none;border:none;padding:0}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--code-bg);font-weight:700}
@@ -68,9 +66,9 @@
 <div class="shell">
   <nav>
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
-    <div class="brand"><span class="logo">F</span> Fabric IQ</div>
-    <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#ontology">2. Ontology</a><a class="lnk" href="#layers">3. The layers</a><div class="sec">Using Fabric IQ</div><a class="lnk" href="#data-agents">4. Data agents</a><a class="lnk" href="#activator-rules">5. Ontology rules</a><a class="lnk" href="#relationship">6. Vs Work/Foundry IQ</a><a class="lnk" href="#glossary">7. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">8. Sources</a>
+    <div class="brand"><span class="logo">Fb</span> Fabric IQ</div>
+    <div class="ver">v2.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#ontology">2. Ontology</a><a class="lnk" href="#layers">3. The layers</a><div class="sec">Using Fabric IQ</div><a class="lnk" href="#data-agents">4. Data agents</a><a class="lnk" href="#rules">5. Ontology rules</a><a class="lnk" href="#relationship">6. Vs Work/Foundry IQ</a><a class="lnk" href="#glossary">7. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">8. Where to start</a><a class="lnk" href="#sources">9. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -86,35 +84,39 @@
       </section>
       <section id="ontology">
         <h2><span class="badge">2</span> Ontology: modelling your business</h2>
-        <p>The heart of Fabric IQ is the <strong>ontology</strong> &mdash; an item where you define the entity types of your business and how they relate. It turns raw tables into meaningful business concepts an agent can understand.</p><div class="grid3"><div class="card"><h4>Entity types</h4>Business concepts &mdash; Customer, Order, Product &mdash; not just tables.</div><div class="card"><h4>Relationships</h4>How entities connect, so agents can traverse meaning.</div><div class="card"><h4>Semantics</h4>Shared definitions of measures and terms across systems.</div></div><div class="callout tip"><b>Why semantics matter</b>An agent that knows "revenue" and how a Customer links to Orders gives consistent, trustworthy answers &mdash; instead of re-deriving logic per query.</div>
+        <p>The heart of Fabric IQ is the <strong>ontology</strong> &mdash; an item where you define your business entity types and how they relate. It turns raw tables into meaningful business concepts an agent can understand.</p><div class="grid3"><div class="card"><h4>Entity types</h4>Business concepts &mdash; Customer, Order, Product &mdash; not just tables.</div><div class="card"><h4>Relationships</h4>How entities connect, so agents can traverse meaning.</div><div class="card"><h4>Semantics</h4>Shared definitions of measures and terms across systems.</div></div><div class="callout tip"><b>Why semantics matter</b>An agent that knows "revenue" and how a Customer links to Orders gives consistent, trustworthy answers &mdash; instead of re-deriving logic per query.</div>
       </section>
       <section id="layers">
         <h2><span class="badge">3</span> The layers of Fabric IQ</h2>
-        <table><tr><th>Layer</th><th>Role</th></tr><tr><td>Data</td><td>Your governed data in OneLake (Delta/Parquet) and Power BI</td></tr><tr><td>Semantic</td><td>Ontologies, semantic models, and graphs over that data</td></tr><tr><td>Agent</td><td>Data agents that reason and answer using the semantics</td></tr></table>
+        <table><tr><th>Layer</th><th>Role</th></tr><tr><td>Data</td><td>Governed data in OneLake (Delta/Parquet) and Power BI</td></tr><tr><td>Semantic</td><td>Ontologies, semantic models, and graphs over that data</td></tr><tr><td>Agent</td><td>Data agents that reason and answer using the semantics</td></tr></table>
       </section>
       <section id="data-agents">
         <h2><span class="badge">4</span> Data agents</h2>
-        <p><strong>Data agents</strong> let business users discover and chat with governed Fabric data sources in natural language. As of <strong>June 2026</strong>, Fabric Data Agents are generally available <em>inside Microsoft 365 Copilot</em>, with admin-managed publishing and Entra ID-based access.</p><div class="callout info"><b>From data to the flow of work</b>Users ask questions of governed data right where they already work &mdash; in Microsoft 365 Copilot &mdash; without leaving for a separate analytics tool.</div>
+        <p><strong>Data agents</strong> let business users discover and chat with governed Fabric data sources in natural language. As of <strong>June 2026</strong>, Fabric Data Agents are generally available <em>inside Microsoft 365 Copilot</em>, with admin-managed publishing and Entra ID-based access.</p><div class="callout info"><b>From data to the flow of work</b>Users ask questions of governed data right where they already work &mdash; in Microsoft 365 Copilot &mdash; without switching to a separate analytics tool.</div>
       </section>
-      <section id="activator-rules">
+      <section id="rules">
         <h2><span class="badge">5</span> Ontology rules & Activator</h2>
         <p>Fabric IQ integrates with <strong>Fabric Activator</strong> through <strong>Ontology Rules</strong>: define conditions and trigger actions on business entities using business language &mdash; turning insight into automated action.</p><ol class="steps"><li>Model your entities in the ontology.</li><li>Define rules in business terms (e.g. "flag any Account whose risk crosses a threshold").</li><li>Activator monitors the entities and fires actions (alerts, flows) when conditions are met.</li></ol>
       </section>
       <section id="relationship">
         <h2><span class="badge">6</span> Relationship to Work IQ & Foundry IQ</h2>
-        <table><tr><th>Workload</th><th>Grounds agents in</th></tr><tr><td>Fabric IQ</td><td>Business entities and data (the semantic model of your data)</td></tr><tr><td><a href="../work-iq/index.html">Work IQ</a></td><td>How employees work &mdash; documents, meetings, chats</td></tr><tr><td><a href="../foundry-iq/index.html">Foundry IQ</a></td><td>Authoritative documents and policies</td></tr></table><div class="callout warn"><b>Preview</b>Fabric IQ is a preview workload; features are being added regularly. Avoid production dependencies on preview behaviour.</div>
+        <table><tr><th>Workload</th><th>Grounds agents in</th></tr><tr><td>Fabric IQ</td><td>Business entities and data (the semantic model of your data)</td></tr><tr><td><a href="../work-iq/index.html">Work IQ</a></td><td>How employees work &mdash; documents, meetings, chats</td></tr><tr><td><a href="../foundry-iq/index.html">Foundry IQ</a></td><td>Authoritative documents and policies</td></tr></table><div class="callout warn"><b>Preview</b>Fabric IQ is a preview workload; features are added regularly. Avoid production dependencies on preview behaviour.</div>
       </section>
       <section id="glossary">
         <h2><span class="badge">7</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Fabric IQ</td><td>The semantic intelligence layer over Fabric data.</td></tr><tr><td>Ontology</td><td>An item defining business entity types and relationships.</td></tr><tr><td>Semantic model</td><td>Reusable definitions of measures, relationships, terms.</td></tr><tr><td>Data agent</td><td>An agent that chats over governed Fabric data.</td></tr><tr><td>Activator</td><td>Fabric's engine for condition-based, automated actions.</td></tr></table>
       </section>
+      <section id="learn">
+        <h2><span class="badge">8</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/fabric/iq/overview" target="_blank" rel="noopener">What is Fabric IQ?</a></li><li><a href="https://learn.microsoft.com/fabric/fundamentals/fabric-terminology" target="_blank" rel="noopener">Fabric terminology &mdash; Fabric IQ</a></li><li><a href="https://learn.microsoft.com/fabric/fundamentals/whats-new" target="_blank" rel="noopener">What's new in Microsoft Fabric</a></li><li><a href="../fabric/index.html" target="_blank" rel="noopener">Microsoft Fabric manual (this library)</a></li></ul>
+      </section>
       <section id="sources">
-        <h2><span class="badge">8</span> Sources</h2>
-        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/fabric/iq/overview" target="_blank" rel="noopener">What is Fabric IQ?</a></li><li><a href="https://learn.microsoft.com/fabric/fundamentals/fabric-terminology" target="_blank" rel="noopener">Fabric terminology &mdash; Fabric IQ</a></li><li><a href="https://learn.microsoft.com/fabric/fundamentals/whats-new" target="_blank" rel="noopener">What's new in Microsoft Fabric</a></li></ul>
+        <h2><span class="badge">9</span> Sources</h2>
+        <p>This manual is grounded in the official documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/fabric/iq/overview" target="_blank" rel="noopener">What is Fabric IQ?</a></li><li><a href="https://learn.microsoft.com/fabric/fundamentals/fabric-terminology" target="_blank" rel="noopener">Fabric terminology &mdash; Fabric IQ</a></li><li><a href="https://learn.microsoft.com/fabric/fundamentals/whats-new" target="_blank" rel="noopener">What's new in Microsoft Fabric</a></li></ul>
       </section>
 
     </div>
-    <footer>Fabric IQ &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/fabric/iq/overview">Microsoft Learn documentation</a>.</footer>
+    <footer>Fabric IQ &middot; Training &amp; Development &middot; v2.0, generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/fabric/iq/overview">Microsoft documentation</a>.</footer>
   </main>
 </div>
 </body>

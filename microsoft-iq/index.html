@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Microsoft IQ</title>
 <style>
-  :root{
-    --accent:#2563eb; --accent-deep:#0b2a6b; --accent-soft:#eef4ff;
-    --green:#107c41; --amber:#d29922;
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
-  }
+  :root{--accent:#2563eb;--accent-deep:#0b2a6b;--accent-soft:#eef4ff;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
@@ -19,28 +16,29 @@
   nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
   nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
   nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
   nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
-  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
   nav a.lnk:hover{background:#e7edf1;text-decoration:none}
-  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
   main{padding:0 0 100px}
-  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
   .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
-  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
   .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .content{padding:14px 56px}
-  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
   section:last-child{border-bottom:none}
-  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2{font-size:24px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
   h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
-  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  h3{font-size:17.5px;margin:22px 0 6px;color:var(--ink)}
   p,li{font-size:15px}
   code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
-  pre code{background:none;border:none;padding:0}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--code-bg);font-weight:700}
@@ -69,8 +67,8 @@
   <nav>
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">IQ</span> Microsoft IQ</div>
-    <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#four-iqs">2. The IQ family</a><a class="lnk" href="#why">3. Why it matters</a><div class="sec">Using Microsoft IQ</div><a class="lnk" href="#how">4. How agents use it</a><a class="lnk" href="#related">5. Explore each IQ</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">7. Sources</a>
+    <div class="ver">v2.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#four-iqs">2. The IQ family</a><a class="lnk" href="#why">3. Why it matters</a><div class="sec">Using Microsoft IQ</div><a class="lnk" href="#how">4. How agents use it</a><a class="lnk" href="#explore">5. Explore each IQ</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">7. Where to start</a><a class="lnk" href="#sources">8. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -82,21 +80,21 @@
     <div class="content">
       <section id="intro">
         <h2><span class="badge">1</span> What is Microsoft IQ?</h2>
-        <p><strong>Microsoft IQ</strong> is a set of capabilities that form the <strong>enterprise intelligence layer</strong> of the Microsoft stack. Together its components give AI agents the context they need to reason accurately about your business &mdash; your data, your work, your policies, and the web.</p><div class="callout info"><b>Why a "layer"?</b>Agents are only as good as the context they can ground on. Microsoft IQ is the shared layer that supplies that context to Copilot, Copilot Studio agents, and Azure AI Foundry agents alike.</div>
+        <p><strong>Microsoft IQ</strong> is a set of capabilities that form the <strong>enterprise intelligence layer</strong> of the Microsoft stack. Together, its components give AI agents the context they need to reason accurately about your business &mdash; your data, your work, your policies, and the web.</p><div class="callout info"><b>Why a "layer"?</b>Agents are only as good as the context they can ground on. Microsoft IQ is the shared layer that supplies that context to Microsoft 365 Copilot, Copilot Studio agents, and Azure AI Foundry agents alike.</div>
       </section>
       <section id="four-iqs">
         <h2><span class="badge">2</span> The four IQs</h2>
-        <table><tr><th>Capability</th><th>Provides context on</th><th>Built on</th></tr><tr><td><a href="../fabric-iq/index.html">Fabric IQ</a></td><td>Business entities and data (the semantic model of your data)</td><td>Microsoft Fabric / OneLake</td></tr><tr><td><a href="../work-iq/index.html">Work IQ</a></td><td>How employees work &mdash; documents, meetings, chats, workflows</td><td>Microsoft 365</td></tr><tr><td><a href="../foundry-iq/index.html">Foundry IQ</a></td><td>Organizational policies and authoritative documents (knowledge)</td><td>Azure AI Foundry</td></tr><tr><td>Web IQ</td><td>Context from the public web</td><td>Web / Bing</td></tr></table><div class="callout info"><b>One complete view</b>Each IQ covers a different slice of context. Combined, they let an agent answer a question that spans your data, your collaboration, your policies, and the world.</div>
+        <table><tr><th>Capability</th><th>Provides context on</th><th>Built on</th></tr><tr><td><a href="../fabric-iq/index.html">Fabric IQ</a></td><td>Business entities and data</td><td>Microsoft Fabric / OneLake</td></tr><tr><td><a href="../work-iq/index.html">Work IQ</a></td><td>How employees work &mdash; docs, meetings, chats</td><td>Microsoft 365</td></tr><tr><td><a href="../foundry-iq/index.html">Foundry IQ</a></td><td>Authoritative policies and documents</td><td>Azure AI Foundry</td></tr><tr><td>Web IQ</td><td>Context from the public web</td><td>Web / Bing</td></tr></table><div class="callout info"><b>One complete view</b>Each IQ covers a different slice of context. Combined, they let an agent answer a question that spans your data, your collaboration, your policies, and the world.</div>
       </section>
       <section id="why">
         <h2><span class="badge">3</span> Why it matters</h2>
-        <div class="grid3"><div class="card"><h4>Grounded answers</h4>Agents reason over trustworthy, organization-specific context instead of guessing.</div><div class="card"><h4>Permission-aware</h4>Context respects the identity and existing access of the user or agent.</div><div class="card"><h4>Reusable</h4>The same intelligence layer serves many agents across many surfaces.</div></div>
+        <div class="grid3"><div class="card"><h4>Grounded answers</h4>Agents reason over trustworthy, organization-specific context instead of guessing.</div><div class="card"><h4>Permission-aware</h4>Context respects the identity and existing access of the user or agent.</div><div class="card"><h4>Reusable</h4>The same layer serves many agents across many surfaces.</div></div>
       </section>
       <section id="how">
         <h2><span class="badge">4</span> How agents use Microsoft IQ</h2>
-        <p>Agents tap Microsoft IQ through standard protocols and tooling:</p><ul><li>In <strong>Copilot Studio</strong>, add IQ capabilities as knowledge/context for an agent.</li><li>Via the <strong>Model Context Protocol (MCP)</strong> and agent APIs for pro-code agents.</li><li>Through <strong>Microsoft 365 Copilot</strong>, which is grounded in Work IQ and can reach the other IQs.</li></ul><div class="callout warn"><b>Preview</b>Parts of Microsoft IQ are in preview and evolving. Avoid hard-coded dependencies on preview tool names and parameters.</div>
+        <ul><li>In <strong>Copilot Studio</strong>, add IQ capabilities as knowledge/context for an agent.</li><li>Via the <strong>Model Context Protocol (MCP)</strong> and agent APIs for pro-code agents.</li><li>Through <strong>Microsoft 365 Copilot</strong>, grounded in Work IQ and able to reach the other IQs.</li></ul><div class="callout warn"><b>Preview</b>Parts of Microsoft IQ are in preview and evolving. Avoid hard-coded dependencies on preview tool names and parameters.</div>
       </section>
-      <section id="related">
+      <section id="explore">
         <h2><span class="badge">5</span> Explore each IQ</h2>
         <div class="grid3"><div class="card"><h4>Fabric IQ</h4>Semantics over your data &mdash; <a href="../fabric-iq/index.html">open manual</a>.</div><div class="card"><h4>Work IQ</h4>Context from how you work &mdash; <a href="../work-iq/index.html">open manual</a>.</div><div class="card"><h4>Foundry IQ</h4>Authoritative knowledge for agents &mdash; <a href="../foundry-iq/index.html">open manual</a>.</div></div>
       </section>
@@ -104,13 +102,17 @@
         <h2><span class="badge">6</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Intelligence layer</td><td>The shared context layer that grounds agents.</td></tr><tr><td>Grounding</td><td>Supplying real organizational context to a model/agent.</td></tr><tr><td>MCP</td><td>Model Context Protocol &mdash; standardized way agents access tools/data.</td></tr><tr><td>Permission-aware</td><td>Context honours the identity's existing access rights.</td></tr></table>
       </section>
+      <section id="learn">
+        <h2><span class="badge">7</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview</a></li><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/fabric/iq/overview" target="_blank" rel="noopener">What is Fabric IQ?</a></li></ul>
+      </section>
       <section id="sources">
-        <h2><span class="badge">7</span> Sources</h2>
-        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents (preview)</a></li><li><a href="https://learn.microsoft.com/fabric/iq/overview" target="_blank" rel="noopener">What is Fabric IQ?</a></li><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview</a></li></ul>
+        <h2><span class="badge">8</span> Sources</h2>
+        <p>This manual is grounded in the official documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents (preview)</a></li><li><a href="https://learn.microsoft.com/fabric/iq/overview" target="_blank" rel="noopener">What is Fabric IQ?</a></li><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview</a></li></ul>
       </section>
 
     </div>
-    <footer>Microsoft IQ &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq">Microsoft Learn documentation</a>.</footer>
+    <footer>Microsoft IQ &middot; Training &amp; Development &middot; v2.0, generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq">Microsoft documentation</a>.</footer>
   </main>
 </div>
 </body>
