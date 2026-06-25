@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Training Manual</title>
+<style>
+  :root{
+    --navy:#0d1117; --panel:#161b22; --blue:#2f81f7; --blue-soft:#dbeafe;
+    --green:#238636; --purple:#8957e5; --amber:#d29922;
+    --ink:#1f2328; --muted:#656d76; --line:#d0d7de; --bg:#ffffff; --code-bg:#f6f8fa;
+    --sidebar:#f6f8fa;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* layout */
+  .shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;margin-bottom:6px;color:var(--ink)}
+  nav .brand svg{width:26px;height:26px}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:20px}
+  nav a{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a:hover{background:#eaeef2;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--navy),#1f2937);color:#fff;padding:54px 56px 44px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.8;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:36px;font-weight:800}
+  .hero p{font-size:17px;opacity:.9;max-width:640px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px}
+  section{padding:30px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:26px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--blue);border-radius:20px;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:18px;margin:24px 0 6px;color:var(--ink)}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+  pre code{background:none;border:none;padding:0}
+  .cmt{color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  td code{white-space:nowrap}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:#eff6ff;border-color:var(--blue)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--navy);color:#fff;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  .kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 7px;font-size:12px;font-family:monospace}
+  footer{padding:30px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:840px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav>
+    <div class="brand">
+      <svg viewBox="0 0 16 16" fill="#1f2328"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub Training Manual
+    </div>
+    <div class="ver">v1.0 · June 2026</div>
+    <div class="sec">Foundations</div>
+    <a href="#intro">1. What is GitHub?</a>
+    <a href="#concepts">2. Core concepts</a>
+    <a href="#setup">3. Account &amp; setup</a>
+    <div class="sec">Daily workflow</div>
+    <a href="#first-repo">4. Your first repository</a>
+    <a href="#git-basics">5. Git basics</a>
+    <a href="#branching">6. Branching</a>
+    <a href="#pull-requests">7. Pull requests</a>
+    <a href="#forking">8. Forking</a>
+    <div class="sec">Going further</div>
+    <a href="#collaboration">9. Collaboration</a>
+    <a href="#actions">10. GitHub Actions</a>
+    <a href="#cli">11. GitHub CLI</a>
+    <a href="#cheatsheet">12. Cheat sheet</a>
+    <a href="#glossary">13. Glossary</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Onboarding &amp; Enablement</p>
+      <h1>GitHub Training Manual</h1>
+      <p>A practical, hands-on guide that takes you from zero to confident contributor: repositories, Git, branching, pull requests, forking, automation, and the command line.</p>
+      <div class="pills">
+        <span class="pill">Beginner friendly</span>
+        <span class="pill">Hands-on commands</span>
+        <span class="pill">~60 min read</span>
+        <span class="pill">No prior Git needed</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro">
+        <h2><span class="badge">1</span> What is GitHub?</h2>
+        <p><strong>Git</strong> is a version-control system that tracks changes to files over time. <strong>GitHub</strong> is a cloud platform built on top of Git that hosts your repositories and adds collaboration tools: pull requests, issues, code review, automation, and project management.</p>
+        <div class="grid2">
+          <div class="card"><h4>Git (the tool)</h4>Runs locally on your machine. Tracks history, lets you branch and merge, works offline.</div>
+          <div class="card"><h4>GitHub (the platform)</h4>Hosts repos in the cloud, enables teams to collaborate, review code, and automate workflows.</div>
+        </div>
+        <div class="callout info"><b>Analogy</b>Git is like the "track changes" engine; GitHub is the shared office where everyone's documents live and where you discuss and approve edits.</div>
+      </section>
+
+      <section id="concepts">
+        <h2><span class="badge">2</span> Core concepts</h2>
+        <table>
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td><strong>Repository (repo)</strong></td><td>A project's folder, including all files and their complete history.</td></tr>
+          <tr><td><strong>Commit</strong></td><td>A saved snapshot of changes with a message describing what changed.</td></tr>
+          <tr><td><strong>Branch</strong></td><td>An independent line of work, so you can develop without affecting <code>main</code>.</td></tr>
+          <tr><td><strong>Merge</strong></td><td>Combining the changes from one branch into another.</td></tr>
+          <tr><td><strong>Clone</strong></td><td>Downloading a full copy of a repo to your machine.</td></tr>
+          <tr><td><strong>Fork</strong></td><td>Your own server-side copy of someone else's repo.</td></tr>
+          <tr><td><strong>Pull request (PR)</strong></td><td>A proposal to merge your branch, with review and discussion.</td></tr>
+          <tr><td><strong>Issue</strong></td><td>A tracked task, bug report, or feature request.</td></tr>
+          <tr><td><strong>Remote</strong></td><td>A hosted version of your repo (e.g., on GitHub), usually named <code>origin</code>.</td></tr>
+        </table>
+      </section>
+
+      <section id="setup">
+        <h2><span class="badge">3</span> Account &amp; setup</h2>
+        <ol class="steps">
+          <li>Create a free account at <a href="https://github.com">github.com</a>.</li>
+          <li>Install Git from <a href="https://git-scm.com">git-scm.com</a> (or use <code>winget install Git.Git</code> on Windows).</li>
+          <li>Tell Git who you are:
+            <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+          </li>
+          <li>Authenticate. The easiest path is the GitHub CLI:
+            <pre><code>winget install GitHub.cli
+gh auth login   <span class="cmt"># follow the browser prompts</span></code></pre>
+          </li>
+        </ol>
+        <div class="callout tip"><b>Tip</b>Prefer SSH or the GitHub CLI over typing your password. Personal access tokens replaced password auth for Git operations years ago.</div>
+      </section>
+
+      <section id="first-repo">
+        <h2><span class="badge">4</span> Your first repository</h2>
+        <h3>Option A — start on GitHub</h3>
+        <ol class="steps">
+          <li>Click <strong>New</strong> on your repos page, name it, and add a README.</li>
+          <li>Clone it locally: <pre><code>git clone https://github.com/&lt;you&gt;/&lt;repo&gt;.git
+cd &lt;repo&gt;</code></pre></li>
+        </ol>
+        <h3>Option B — start locally, push up</h3>
+        <pre><code>mkdir my-project &amp;&amp; cd my-project
+git init
+echo "# My Project" &gt; README.md
+git add .
+git commit -m "Initial commit"
+gh repo create my-project --private --source=. --push</code></pre>
+      </section>
+
+      <section id="git-basics">
+        <h2><span class="badge">5</span> Git basics: the daily loop</h2>
+        <p>Almost every day with Git is the same short cycle:</p>
+        <pre><code>git status              <span class="cmt"># see what changed</span>
+git add file.txt        <span class="cmt"># stage a file (or: git add .)</span>
+git commit -m "message" <span class="cmt"># save a snapshot</span>
+git pull                <span class="cmt"># get teammates' latest changes</span>
+git push                <span class="cmt"># upload your commits</span></code></pre>
+        <div class="callout info"><b>The three areas</b>Files move from your <strong>working directory</strong> → <strong>staging area</strong> (<code>git add</code>) → <strong>repository</strong> (<code>git commit</code>) → <strong>remote</strong> (<code>git push</code>).</div>
+        <h3>Writing good commit messages</h3>
+        <ul>
+          <li>Use the imperative mood: "Add login validation", not "Added" or "Adds".</li>
+          <li>Keep the summary under ~50 characters; add detail in the body if needed.</li>
+          <li>One logical change per commit.</li>
+        </ul>
+      </section>
+
+      <section id="branching">
+        <h2><span class="badge">6</span> Branching</h2>
+        <p>Never build directly on <code>main</code>. Create a branch per feature or fix:</p>
+        <pre><code>git switch -c feature/login   <span class="cmt"># create + switch to a new branch</span>
+<span class="cmt"># ...make changes, add, commit...</span>
+git push -u origin feature/login</code></pre>
+        <table>
+          <tr><th>Action</th><th>Command</th></tr>
+          <tr><td>List branches</td><td><code>git branch</code></td></tr>
+          <tr><td>Create &amp; switch</td><td><code>git switch -c name</code></td></tr>
+          <tr><td>Switch existing</td><td><code>git switch name</code></td></tr>
+          <tr><td>Delete merged branch</td><td><code>git branch -d name</code></td></tr>
+        </table>
+        <div class="callout tip"><b>Naming convention</b>Use prefixes like <code>feature/</code>, <code>fix/</code>, <code>docs/</code>, <code>chore/</code> so branches are self-describing.</div>
+      </section>
+
+      <section id="pull-requests">
+        <h2><span class="badge">7</span> Pull requests (PRs)</h2>
+        <p>A PR is how your branch gets reviewed and merged. The flow:</p>
+        <ol class="steps">
+          <li>Push your branch to GitHub.</li>
+          <li>Open a PR (button on the repo page, or <code>gh pr create</code>).</li>
+          <li>Describe <em>what</em> and <em>why</em>; link any related issues with <code>Closes #123</code>.</li>
+          <li>Reviewers comment and approve; CI checks run automatically.</li>
+          <li>Merge (squash, merge, or rebase), then delete the branch.</li>
+        </ol>
+        <pre><code>gh pr create --fill            <span class="cmt"># open a PR from current branch</span>
+gh pr status                   <span class="cmt"># see your PRs</span>
+gh pr checks                   <span class="cmt"># view CI status</span>
+gh pr merge --squash --delete-branch</code></pre>
+        <div class="callout warn"><b>Review etiquette</b>Keep PRs small and focused. A 200-line PR gets a real review; a 2,000-line PR gets a rubber stamp.</div>
+      </section>
+
+      <section id="forking">
+        <h2><span class="badge">8</span> Forking (contributing to others' projects)</h2>
+        <p>Use a fork when you don't have write access to a repo, e.g., open-source contributions.</p>
+        <ol class="steps">
+          <li>Fork the repo (button on GitHub, or <code>gh repo fork owner/repo --clone</code>).</li>
+          <li>Add the original as an <code>upstream</code> remote to stay in sync:
+            <pre><code>git remote add upstream https://github.com/owner/repo.git
+git fetch upstream
+git merge upstream/main</code></pre>
+          </li>
+          <li>Create a branch, commit, push to <strong>your</strong> fork.</li>
+          <li>Open a PR from your fork's branch back to the original repo.</li>
+        </ol>
+        <div class="callout info"><b>Fork vs. branch</b>A <strong>branch</strong> lives inside one repo (use it when you have write access). A <strong>fork</strong> is a separate copy under your account (use it when you don't).</div>
+      </section>
+
+      <section id="collaboration">
+        <h2><span class="badge">9</span> Collaboration tools</h2>
+        <div class="grid2">
+          <div class="card"><h4>Issues</h4>Track bugs, tasks, and ideas. Use labels, assignees, and milestones to organize.</div>
+          <div class="card"><h4>Projects</h4>Kanban-style boards that link issues and PRs to plan and track work.</div>
+          <div class="card"><h4>Code review</h4>Inline comments on diffs, suggested changes, and required approvals before merge.</div>
+          <div class="card"><h4>Discussions</h4>Q&amp;A and open-ended conversation separate from actionable issues.</div>
+        </div>
+        <h3>Protecting <code>main</code></h3>
+        <p>Repo admins add <strong>branch protection rules</strong>: require PR reviews, passing CI checks, and no direct pushes to <code>main</code>. This keeps the default branch always shippable.</p>
+      </section>
+
+      <section id="actions">
+        <h2><span class="badge">10</span> GitHub Actions (automation &amp; CI/CD)</h2>
+        <p>Actions run automated workflows on events like a push or PR. Define them in <code>.github/workflows/*.yml</code>.</p>
+        <pre><code><span class="cmt"># .github/workflows/ci.yml</span>
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npm test</code></pre>
+        <div class="callout tip"><b>Common uses</b>Run tests, lint code, build artifacts, deploy on merge, auto-label PRs, or publish releases.</div>
+      </section>
+
+      <section id="cli">
+        <h2><span class="badge">11</span> GitHub CLI (<code>gh</code>)</h2>
+        <p>The <code>gh</code> tool brings GitHub into your terminal, no browser needed.</p>
+        <table>
+          <tr><th>Task</th><th>Command</th></tr>
+          <tr><td>List your repos</td><td><code>gh repo list</code></td></tr>
+          <tr><td>Create a repo</td><td><code>gh repo create</code></td></tr>
+          <tr><td>Fork &amp; clone</td><td><code>gh repo fork owner/repo --clone</code></td></tr>
+          <tr><td>Open a PR</td><td><code>gh pr create --fill</code></td></tr>
+          <tr><td>List issues</td><td><code>gh issue list</code></td></tr>
+          <tr><td>Check CI runs</td><td><code>gh run list</code></td></tr>
+        </table>
+      </section>
+
+      <section id="cheatsheet">
+        <h2><span class="badge">12</span> Quick cheat sheet</h2>
+        <pre><code><span class="cmt"># Setup</span>
+git clone &lt;url&gt;                 clone a repo
+git remote -v                   list remotes
+
+<span class="cmt"># Daily loop</span>
+git status                      what changed
+git add .                       stage everything
+git commit -m "msg"             save snapshot
+git pull                        fetch + merge remote
+git push                        upload commits
+
+<span class="cmt"># Branching</span>
+git switch -c name              new branch
+git switch main                 change branch
+git merge name                  merge into current
+git branch -d name              delete branch
+
+<span class="cmt"># Undo</span>
+git restore file                discard local changes
+git restore --staged file       unstage
+git reset --soft HEAD~1         undo last commit, keep changes
+git revert &lt;hash&gt;               new commit that undoes a commit</code></pre>
+      </section>
+
+      <section id="glossary">
+        <h2><span class="badge">13</span> Glossary</h2>
+        <table>
+          <tr><th>Term</th><th>Definition</th></tr>
+          <tr><td>HEAD</td><td>A pointer to your current commit/branch.</td></tr>
+          <tr><td>origin</td><td>Default name for your primary remote on GitHub.</td></tr>
+          <tr><td>upstream</td><td>Conventional name for the original repo you forked from.</td></tr>
+          <tr><td>staging area</td><td>Where changes wait before being committed.</td></tr>
+          <tr><td>CI/CD</td><td>Continuous Integration / Continuous Delivery, automated build, test, deploy.</td></tr>
+          <tr><td>.gitignore</td><td>A file listing paths Git should not track.</td></tr>
+          <tr><td>squash</td><td>Combining several commits into one when merging.</td></tr>
+        </table>
+      </section>
+
+    </div>
+    <footer>
+      GitHub Training Manual · v1.0 · Generated 6 June 2026. For deeper reference see the official
+      <a href="https://docs.github.com">GitHub Docs</a> and <a href="https://git-scm.com/book">Pro Git book</a>.
+    </footer>
+  </main>
+</div>
+</body>
+</html>
