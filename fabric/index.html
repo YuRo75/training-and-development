@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Fabric Training Manual</title>
+<style>
+  :root{
+    --teal:#0e7c6e; --teal-deep:#06312c; --teal-2:#0c5f54; --teal-soft:#ecfdf7;
+    --green:#107c41; --purple:#8b5cf6; --amber:#d29922;
+    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f4f8f7;
+    --sidebar:#f4f8f7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* layout */
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand svg{width:26px;height:26px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:20px}
+  nav a{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a:hover{background:#e3efec;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--teal-deep),var(--teal-2));color:#fff;padding:54px 56px 44px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:36px;font-weight:800}
+  .hero p{font-size:17px;opacity:.92;max-width:660px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px}
+  section{padding:30px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:26px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--teal);border-radius:20px;min-width:28px;height:28px;padding:0 7px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:18px;margin:24px 0 6px;color:var(--ink)}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+  pre code{background:none;border:none;padding:0}
+  .cmt{color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  td code{white-space:nowrap}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--teal-soft);border-color:var(--teal)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--teal-deep);color:#fff;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  .kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 7px;font-size:12px;font-family:monospace}
+  footer{padding:30px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav>
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#0e7c6e"/></linearGradient></defs><rect x="1" y="1" width="30" height="30" rx="8" fill="url(#fg)"/><path d="M11 8.5h11v3.3h-7.3v3H21v3.2h-6.3V23.5H11z" fill="#fff"/></svg>
+      Microsoft Fabric Manual
+    </div>
+    <div class="ver">v1.0 · June 2026</div>
+    <div class="sec">Foundations</div>
+    <a href="#intro">1. What is Microsoft Fabric?</a>
+    <a href="#concepts">2. Core concepts</a>
+    <a href="#setup">3. Getting started</a>
+    <div class="sec">Build with data</div>
+    <a href="#workspaces">4. Workspaces &amp; items</a>
+    <a href="#onelake">5. OneLake</a>
+    <a href="#lakehouse">6. Lakehouse</a>
+    <a href="#warehouse">7. Data Warehouse</a>
+    <a href="#datafactory">8. Data Factory</a>
+    <a href="#notebooks">9. Notebooks &amp; Spark</a>
+    <a href="#powerbi">10. Power BI &amp; Direct Lake</a>
+    <div class="sec">Real-time &amp; action</div>
+    <a href="#rti">11. Real-Time Intelligence</a>
+    <a href="#activator">12. Data Activator</a>
+    <div class="sec">Operate</div>
+    <a href="#governance">13. Governance &amp; security</a>
+    <a href="#cicd">14. Git integration &amp; CI/CD</a>
+    <a href="#cheatsheet">15. Cheat sheet</a>
+    <a href="#glossary">16. Glossary</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Analytics &amp; Data Platform · Onboarding &amp; Enablement</p>
+      <h1>Microsoft Fabric Training Manual</h1>
+      <p>A practical, hands-on guide that takes you from zero to confident builder: OneLake, lakehouses, warehouses, pipelines, notebooks, Power BI, Real-Time Intelligence, and the governance that ties it together.</p>
+      <div class="pills">
+        <span class="pill">Beginner friendly</span>
+        <span class="pill">OneLake-first</span>
+        <span class="pill">Hands-on KQL · SQL · PySpark</span>
+        <span class="pill">~75 min read</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Microsoft Fabric?</h2>
+        <p><strong>Microsoft Fabric</strong> is an end-to-end, <strong>SaaS</strong> analytics platform that unifies everything you need to move, store, transform, analyse, and act on data &mdash; in one product, on one foundation called <strong>OneLake</strong>. It brings together the experiences formerly split across Power BI, Azure Synapse, and Azure Data Factory.</p>
+        <div class="grid2">
+          <div class="card"><h4>SaaS, not infrastructure</h4>No clusters or servers to provision. Compute is auto-managed; you buy a single capacity and every workload draws from it.</div>
+          <div class="card"><h4>OneLake at the centre</h4>One logical data lake per tenant. All workloads read and write the same open <strong>Delta&nbsp;Parquet</strong> tables &mdash; one copy of the data.</div>
+        </div>
+        <div class="callout info"><b>Analogy</b>Fabric is to analytics what Microsoft 365 is to productivity: separate apps (Word, Excel, PowerPoint) unified into one suite. Here, Data Factory, Lakehouse, Warehouse, and Power BI are unified on OneLake.</div>
+      </section>
+
+      <section id="concepts">
+        <h2><span class="badge">2</span> Core concepts</h2>
+        <table>
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td><strong>Capacity</strong></td><td>The compute you buy, sized as <code>F</code> SKUs (<code>F2</code>&ndash;<code>F2048</code>). Shared by every workload in its workspaces; can be paused to stop billing.</td></tr>
+          <tr><td><strong>Workspace</strong></td><td>A collaborative container for items, bound to one capacity (and optionally a domain).</td></tr>
+          <tr><td><strong>Item</strong></td><td>Any artifact you create: lakehouse, warehouse, notebook, pipeline, semantic model, report, eventhouse, and more.</td></tr>
+          <tr><td><strong>OneLake</strong></td><td>The single, tenant-wide data lake built on ADLS Gen2, stored in open Delta/Parquet format.</td></tr>
+          <tr><td><strong>Shortcut</strong></td><td>A pointer to data elsewhere (another workspace, ADLS, S3, GCS, Dataverse) &mdash; queried in place, never copied.</td></tr>
+          <tr><td><strong>Workload</strong></td><td>An experience: Data Engineering, Data Factory, Data Warehouse, Data Science, Real-Time Intelligence, Power BI, Databases.</td></tr>
+          <tr><td><strong>Direct Lake</strong></td><td>A Power BI storage mode that reads Delta tables straight from OneLake &mdash; import speed, no refresh.</td></tr>
+          <tr><td><strong>Domain</strong></td><td>An organisational grouping of workspaces for governance and a data-mesh approach.</td></tr>
+        </table>
+      </section>
+
+      <section id="setup">
+        <h2><span class="badge">3</span> Getting started</h2>
+        <ol class="steps">
+          <li>An admin enables Fabric for the tenant in the <strong>Admin portal</strong> (a one-time tenant setting).</li>
+          <li>Start a <strong>free 60-day trial</strong> or assign an <code>F</code>-SKU capacity (in Azure or via reserved capacity).</li>
+          <li>Go to <a href="https://app.fabric.microsoft.com">app.fabric.microsoft.com</a>, create a <strong>workspace</strong>, and assign it to your trial or capacity.</li>
+          <li>Pick a workload from the switcher (bottom-left) and create your first item &mdash; a <strong>Lakehouse</strong> is a great start.</li>
+        </ol>
+        <div class="callout tip"><b>Tip</b>The free trial includes a trial capacity (~<code>F64</code> equivalent) and 1&nbsp;TB of OneLake storage, with no credit card required.</div>
+        <div class="callout warn"><b>Watch your capacity</b>All workloads share the same compute pool. Heavy Spark jobs, big SQL queries, and refreshes compete for it &mdash; monitor with the <strong>Microsoft Fabric Capacity Metrics</strong> app to spot throttling.</div>
+      </section>
+
+      <section id="workspaces">
+        <h2><span class="badge">4</span> Workspaces &amp; items</h2>
+        <p>A <strong>workspace</strong> is where you and your team build. It maps to a capacity, can belong to a domain, and controls who can do what through roles.</p>
+        <table>
+          <tr><th>Role</th><th>Can do</th></tr>
+          <tr><td><strong>Admin</strong></td><td>Everything, including managing access and deleting the workspace.</td></tr>
+          <tr><td><strong>Member</strong></td><td>Add others (up to Member), publish, share, and edit all items.</td></tr>
+          <tr><td><strong>Contributor</strong></td><td>Create and edit items, run notebooks/pipelines; cannot manage access.</td></tr>
+          <tr><td><strong>Viewer</strong></td><td>Read and run reports/queries on items they're allowed to see.</td></tr>
+        </table>
+        <h3>Common items</h3>
+        <div class="grid3">
+          <div class="card"><h4>Lakehouse</h4>Files + Delta tables with a SQL endpoint.</div>
+          <div class="card"><h4>Warehouse</h4>Full read/write T-SQL warehouse.</div>
+          <div class="card"><h4>Notebook</h4>Spark for engineering &amp; data science.</div>
+          <div class="card"><h4>Data pipeline</h4>Orchestrate copy &amp; transform.</div>
+          <div class="card"><h4>Semantic model</h4>Measures, relationships, Direct Lake.</div>
+          <div class="card"><h4>Eventhouse</h4>KQL database for real-time data.</div>
+        </div>
+      </section>
+
+      <section id="onelake">
+        <h2><span class="badge">5</span> OneLake &mdash; the data lake</h2>
+        <p>There is exactly <strong>one OneLake per tenant</strong>, provisioned automatically &mdash; think "OneDrive for data". Every workspace is a container inside it, and every lakehouse or warehouse stores its tables there as open <strong>Delta&nbsp;Parquet</strong>.</p>
+        <ul>
+          <li><strong>One copy, many engines:</strong> Spark, T-SQL, KQL, and Power BI Direct Lake all read the <em>same</em> Delta tables &mdash; no duplication.</li>
+          <li><strong>Shortcuts:</strong> virtualise data from ADLS, Amazon S3, Google Cloud Storage, Dataverse, or another workspace without moving a byte.</li>
+          <li><strong>OneLake file explorer:</strong> a Windows app that syncs OneLake to your PC just like OneDrive.</li>
+        </ul>
+        <p>OneLake paths follow a predictable, ABFS-style format:</p>
+        <pre><code>abfss://&lt;workspace&gt;@onelake.dfs.fabric.microsoft.com/&lt;item&gt;.Lakehouse/Tables/&lt;table&gt;
+abfss://&lt;workspace&gt;@onelake.dfs.fabric.microsoft.com/&lt;item&gt;.Lakehouse/Files/&lt;path&gt;</code></pre>
+        <div class="callout info"><b>Shortcuts &ne; copies</b>A shortcut leaves data at its source and governs it once. Change the source and every Fabric engine sees the update &mdash; no pipeline, no sync lag.</div>
+      </section>
+
+      <section id="lakehouse">
+        <h2><span class="badge">6</span> Lakehouse</h2>
+        <p>A <strong>lakehouse</strong> blends a lake's flexibility (any file, any format) with a warehouse's structure (Delta tables, SQL). It has two zones &mdash; <strong>Tables</strong> (managed Delta) and <strong>Files</strong> (raw/unstructured) &mdash; and automatically gives you a read-only <strong>SQL analytics endpoint</strong> plus a default semantic model.</p>
+        <ol class="steps">
+          <li>Get data in: upload, create a shortcut, or run a pipeline/dataflow into <strong>Files</strong>.</li>
+          <li>Transform it in a notebook (Spark) or dataflow.</li>
+          <li>Save the result as a managed <strong>Delta table</strong>.</li>
+          <li>Query it with the SQL endpoint, or build a Power BI report on it.</li>
+        </ol>
+        <pre><code><span class="cmt"># PySpark in a Fabric notebook with a lakehouse attached</span>
+df = spark.read.option("header", True).csv("Files/raw/sales.csv")
+clean = df.dropna().withColumnRenamed("amt", "amount")
+clean.write.format("delta").mode("overwrite").saveAsTable("sales_clean")</code></pre>
+        <div class="callout tip"><b>Medallion architecture</b>Organise data in layers &mdash; <strong>Bronze</strong> (raw) &rarr; <strong>Silver</strong> (cleaned/conformed) &rarr; <strong>Gold</strong> (business-ready) &mdash; using schemas or separate lakehouses.</div>
+      </section>
+
+      <section id="warehouse">
+        <h2><span class="badge">7</span> Data Warehouse</h2>
+        <p>The Fabric <strong>Warehouse</strong> is a full, ACID-compliant, <strong>read/write T-SQL</strong> warehouse &mdash; but its data lives in OneLake as open Delta, so it's cross-queryable by every other engine. Choose it when you want a SQL-first experience and need to <em>write</em> with T-SQL (the lakehouse SQL endpoint is read-only).</p>
+        <table>
+          <tr><th></th><th>Lakehouse</th><th>Warehouse</th></tr>
+          <tr><td><strong>Primary engine</strong></td><td>Spark (+ read-only T-SQL endpoint)</td><td>T-SQL (read &amp; write)</td></tr>
+          <tr><td><strong>Best for</strong></td><td>Data engineers, data science, files</td><td>SQL / DW developers, BI marts</td></tr>
+          <tr><td><strong>Load with</strong></td><td>Notebooks, pipelines, dataflows</td><td><code>COPY INTO</code>, T-SQL, pipelines</td></tr>
+        </table>
+        <pre><code><span class="cmt">-- T-SQL in a Fabric Warehouse</span>
+CREATE TABLE dbo.sales (id INT, amount DECIMAL(10,2), region VARCHAR(40));
+
+COPY INTO dbo.sales
+FROM 'https://&lt;account&gt;.blob.core.windows.net/data/sales.parquet'
+WITH (FILE_TYPE = 'PARQUET');
+
+<span class="cmt">-- Cross-query a lakehouse table from the warehouse, in one statement</span>
+SELECT w.region, SUM(w.amount) AS total
+FROM dbo.sales AS w
+JOIN [MyLakehouse].dbo.regions AS r ON r.code = w.region
+GROUP BY w.region;</code></pre>
+      </section>
+
+      <section id="datafactory">
+        <h2><span class="badge">8</span> Data Factory</h2>
+        <p>Fabric's <strong>Data Factory</strong> moves and transforms data. Four tools cover most needs:</p>
+        <div class="grid2">
+          <div class="card"><h4>Pipelines</h4>Orchestration &amp; control flow with 200+ connectors. The <strong>Copy</strong> activity does scaled-out data movement.</div>
+          <div class="card"><h4>Dataflows Gen2</h4>Low-code, Power Query transforms &mdash; the same experience as Power BI dataflows, landing in OneLake.</div>
+          <div class="card"><h4>Copy job</h4>A simplified, guided way to move data (batch or incremental) without building a full pipeline.</div>
+          <div class="card"><h4>Mirroring</h4>Near-real-time replicas of Azure SQL, Snowflake, Cosmos DB, and more into OneLake &mdash; free, no ETL.</div>
+        </div>
+        <ol class="steps">
+          <li>Create a <strong>Data pipeline</strong> item.</li>
+          <li>Add a <strong>Copy data</strong> activity; pick a source connector and a OneLake destination.</li>
+          <li>Add transforms (notebook, dataflow, stored proc) downstream.</li>
+          <li>Attach a <strong>schedule</strong> or event trigger.</li>
+        </ol>
+        <div class="callout tip"><b>Mirroring first</b>To get operational data into OneLake continuously, try <strong>Mirroring</strong> before building ETL &mdash; it keeps a live Delta copy you can query with any Fabric engine.</div>
+      </section>
+
+      <section id="notebooks">
+        <h2><span class="badge">9</span> Notebooks &amp; Spark</h2>
+        <p>Fabric <strong>notebooks</strong> run on managed Spark and support PySpark, Spark SQL, Scala, and R. Attach a lakehouse, and a <strong>starter pool</strong> spins up a session in seconds. <strong>Environments</strong> let you pin libraries and Spark configuration for reuse.</p>
+        <pre><code><span class="cmt"># Mix languages with cell magics</span>
+df = spark.read.format("delta").load("Tables/sales_clean")
+df.createOrReplaceTempView("sales")</code></pre>
+        <pre><code>%%sql
+SELECT region, SUM(amount) AS total
+FROM sales GROUP BY region ORDER BY total DESC</code></pre>
+        <pre><code><span class="cmt"># notebookutils: handy helpers for files, secrets, and orchestration</span>
+import notebookutils
+files = notebookutils.fs.ls("Files/raw")
+notebookutils.notebook.run("Transform_Silver", timeout_seconds=600)</code></pre>
+        <div class="callout tip"><b>Fast starts</b>Starter pools give sub-10-second session start for quick work. Use custom pools and Environments when you need specific libraries or tuned Spark settings.</div>
+      </section>
+
+      <section id="powerbi">
+        <h2><span class="badge">10</span> Power BI &amp; Direct Lake</h2>
+        <p>Power BI is a native Fabric workload. A <strong>semantic model</strong> defines your measures and relationships; reports sit on top. There are three storage modes &mdash; and Fabric adds a powerful third one.</p>
+        <table>
+          <tr><th>Mode</th><th>How it works</th><th>Trade-off</th></tr>
+          <tr><td><strong>Import</strong></td><td>Data cached in-memory in the model.</td><td>Fastest queries, but needs scheduled refresh.</td></tr>
+          <tr><td><strong>DirectQuery</strong></td><td>Every visual queries the source live.</td><td>Always fresh, but slower and source-dependent.</td></tr>
+          <tr><td><strong>Direct Lake</strong></td><td>Reads Delta tables straight from OneLake.</td><td>Import-like speed <em>and</em> live freshness, no refresh.</td></tr>
+        </table>
+        <div class="callout info"><b>Direct Lake fallback</b>If a query exceeds capacity guardrails, Direct Lake transparently falls back to DirectQuery so reports keep working &mdash; you just lose a little speed for that query.</div>
+      </section>
+
+      <section id="rti">
+        <h2><span class="badge">11</span> Real-Time Intelligence</h2>
+        <p>For streaming, event, and time-series data, <strong>Real-Time Intelligence (RTI)</strong> provides ingest-to-insight in one workload. You query it with <strong>KQL</strong> (Kusto Query Language).</p>
+        <div class="grid2">
+          <div class="card"><h4>Eventstream</h4>No-code ingest, transform, and route of events from Event Hubs, IoT, Kafka, and more.</div>
+          <div class="card"><h4>Eventhouse</h4>A database optimised for real-time analytics; it contains one or more <strong>KQL databases</strong>.</div>
+          <div class="card"><h4>Real-Time Dashboard</h4>Live, auto-refreshing tiles built on KQL queries.</div>
+          <div class="card"><h4>Activator</h4>Trigger actions when conditions in the stream are met (see &sect;12).</div>
+        </div>
+        <pre><code><span class="cmt">// KQL: 5-minute event volume over the last hour, as a timechart</span>
+Events
+| where Timestamp &gt; ago(1h)
+| summarize count() by bin(Timestamp, 5m)
+| render timechart</code></pre>
+        <div class="callout tip"><b>Best of both worlds</b>Eventhouse auto-indexes for high-volume, low-latency time-series &mdash; <em>and</em> the data is also exposed in OneLake as Delta, so the rest of Fabric can use it too.</div>
+      </section>
+
+      <section id="activator">
+        <h2><span class="badge">12</span> Data Activator</h2>
+        <p><strong>Data Activator</strong> (Activator) is a no-code engine that <em>watches</em> data and <em>acts</em> on it. It monitors Power BI visuals, Eventstreams, and KQL queries, then fires an action &mdash; email, Teams message, Power Automate flow, or a Fabric pipeline &mdash; when a condition is met.</p>
+        <ol class="steps">
+          <li>Pick a source (a Power BI measure, an Eventstream, or a KQL query).</li>
+          <li>Define a <strong>condition</strong> &mdash; e.g. "temperature &gt; 80&deg; for 5 minutes" or "the query returns &ge; 1 row".</li>
+          <li>Choose an <strong>action</strong> and recipients.</li>
+        </ol>
+        <div class="callout info"><b>Pattern: alert on any match</b>A common trigger is "fire when a KQL query returns at least one row" &mdash; ideal for anomaly, threshold, and SLA-breach alerts without writing alerting code.</div>
+      </section>
+
+      <section id="governance">
+        <h2><span class="badge">13</span> Governance &amp; security</h2>
+        <p>Security in Fabric is layered, from the capacity down to a folder in OneLake.</p>
+        <table>
+          <tr><th>Layer</th><th>What it controls</th></tr>
+          <tr><td><strong>Workspace roles</strong></td><td>Who can admin, edit, or view items (see &sect;4).</td></tr>
+          <tr><td><strong>Item permissions</strong></td><td>Sharing a single report, lakehouse, or model independently.</td></tr>
+          <tr><td><strong>OneLake data-access roles</strong></td><td>RBAC on folders/tables within a lakehouse.</td></tr>
+          <tr><td><strong>Sensitivity labels (MIP)</strong></td><td>Classification that flows with items and into exports (PDF, Excel, PBIX).</td></tr>
+          <tr><td><strong>Microsoft Purview</strong></td><td>Catalog, lineage, DLP, and audit across the tenant.</td></tr>
+        </table>
+        <div class="callout warn"><b>Govern the source</b>Labels and permissions on a shortcut don't automatically protect the underlying external data. Secure the source system as well, and use workspace identities / managed private endpoints for private connectivity.</div>
+      </section>
+
+      <section id="cicd">
+        <h2><span class="badge">14</span> Git integration &amp; CI/CD</h2>
+        <p>Fabric workspaces connect to <strong>Azure DevOps</strong> or <strong>GitHub</strong>. Items serialise to source-control-friendly definitions, so you can branch, review, and promote &mdash; exactly like the workflow in the GitHub manual.</p>
+        <ol class="steps">
+          <li>Open <strong>Workspace settings &rarr; Git integration</strong> and connect a repo and branch.</li>
+          <li>Commit your items to the branch; pull updates to sync incoming changes.</li>
+          <li>Use a feature branch + pull request for review, then merge.</li>
+          <li>Promote across stages with a <strong>deployment pipeline</strong> (Dev &rarr; Test &rarr; Prod).</li>
+        </ol>
+        <pre><code>git switch -c feature/new-semantic-model   <span class="cmt"># branch your changes</span>
+<span class="cmt"># ...commit item definitions in Fabric, they appear in the repo...</span>
+git push -u origin feature/new-semantic-model
+gh pr create --fill                        <span class="cmt"># open a PR for review</span></code></pre>
+        <div class="callout tip"><b>Git + pipelines together</b>Use <strong>Git</strong> for source control and reviews, and <strong>deployment pipelines</strong> for stage promotion. Parameterise connections with deployment rules so Prod points at Prod sources.</div>
+      </section>
+
+      <section id="cheatsheet">
+        <h2><span class="badge">15</span> Quick cheat sheet</h2>
+        <h3>KQL essentials (Real-Time Intelligence)</h3>
+        <pre><code>T | take 100                      <span class="cmt">// peek at rows</span>
+T | where Ts &gt; ago(1d)            <span class="cmt">// filter by time</span>
+T | summarize count() by Region   <span class="cmt">// aggregate</span>
+T | summarize avg(v) by bin(Ts,1h)<span class="cmt">// time buckets</span>
+T | make-series c=count() default=0 on Ts step 1h
+T | join kind=inner U on Key      <span class="cmt">// join two tables</span>
+  | render timechart               <span class="cmt">// visualise</span></code></pre>
+        <h3>Lakehouse / PySpark</h3>
+        <pre><code>df = spark.read.format("delta").load("Tables/t")
+df.write.format("delta").mode("append").saveAsTable("t")
+spark.sql("MERGE INTO t USING s ON t.id=s.id "
+          "WHEN MATCHED THEN UPDATE SET * "
+          "WHEN NOT MATCHED THEN INSERT *")</code></pre>
+        <h3>Warehouse / T-SQL</h3>
+        <pre><code>COPY INTO dbo.t FROM '&lt;url&gt;' WITH (FILE_TYPE='PARQUET');
+CREATE TABLE dbo.g AS SELECT region, SUM(amt) a FROM dbo.t GROUP BY region;</code></pre>
+        <h3>Fabric CLI &amp; REST</h3>
+        <pre><code>pip install ms-fabric-cli       <span class="cmt"># the Fabric CLI (fab)</span>
+fab auth login
+fab ls /                         <span class="cmt"># browse workspaces like a filesystem</span>
+fab create MyWS.Workspace
+<span class="cmt"># REST APIs live under https://api.fabric.microsoft.com/v1</span></code></pre>
+      </section>
+
+      <section id="glossary">
+        <h2><span class="badge">16</span> Glossary</h2>
+        <table>
+          <tr><th>Term</th><th>Definition</th></tr>
+          <tr><td>OneLake</td><td>The single, tenant-wide data lake underlying all of Fabric.</td></tr>
+          <tr><td>Delta / Parquet</td><td>The open table and file format every Fabric engine reads and writes.</td></tr>
+          <tr><td>Capacity (F SKU)</td><td>The unit of compute you buy, from <code>F2</code> to <code>F2048</code>.</td></tr>
+          <tr><td>CU</td><td>Capacity Unit &mdash; the metric used to measure and bill compute consumption.</td></tr>
+          <tr><td>Direct Lake</td><td>Power BI mode that reads Delta from OneLake with no import or refresh.</td></tr>
+          <tr><td>Shortcut</td><td>A virtual pointer to data in/outside OneLake, queried without copying.</td></tr>
+          <tr><td>Mirroring</td><td>Continuous, free replication of an external database into OneLake.</td></tr>
+          <tr><td>Eventhouse</td><td>The real-time database that hosts KQL databases.</td></tr>
+          <tr><td>KQL</td><td>Kusto Query Language, used for real-time and time-series analytics.</td></tr>
+          <tr><td>Medallion</td><td>The Bronze &rarr; Silver &rarr; Gold layering pattern for refining data.</td></tr>
+          <tr><td>SQL analytics endpoint</td><td>The auto-generated, read-only T-SQL surface over a lakehouse.</td></tr>
+          <tr><td>Semantic model</td><td>The Power BI model of tables, relationships, and measures.</td></tr>
+          <tr><td>Domain</td><td>An organisational grouping of workspaces for governance / data mesh.</td></tr>
+        </table>
+      </section>
+
+    </div>
+    <footer>
+      Microsoft Fabric Training Manual · v1.0 · Generated 25 June 2026. For the authoritative reference see the official
+      <a href="https://learn.microsoft.com/fabric">Microsoft Fabric documentation</a> and the
+      <a href="https://community.fabric.microsoft.com">Fabric Community</a>.
+    </footer>
+  </main>
+</div>
+</body>
+</html>
