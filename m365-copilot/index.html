@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft 365 Copilot</title>
+<style>
+  :root{
+    --accent:#8b5cf6; --accent-deep:#4c1d95; --accent-soft:#f5f3ff;
+    --green:#107c41; --amber:#d29922;
+    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .shell{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
+  nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
+  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk:hover{background:#e7edf1;text-decoration:none}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  main{padding:0 0 100px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
+  .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
+  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
+  .content{padding:14px 56px}
+  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  section:last-child{border-bottom:none}
+  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
+  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+  pre code{background:none;border:none;padding:0}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--code-bg);font-weight:700}
+  .callout{border-radius:10px;padding:14px 18px;margin:16px 0;font-size:14.5px;border-left:4px solid}
+  .tip{background:#ecfdf3;border-color:var(--green)}
+  .warn{background:#fff8e6;border-color:var(--amber)}
+  .info{background:var(--accent-soft);border-color:var(--accent)}
+  .callout b{display:block;margin-bottom:3px}
+  .steps{counter-reset:step;list-style:none;padding-left:0}
+  .steps li{counter-increment:step;position:relative;padding:8px 0 8px 44px;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(step);position:absolute;left:0;top:8px;width:28px;height:28px;background:var(--accent-deep);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .card{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px}
+  footer{padding:28px 56px;color:var(--muted);font-size:13px}
+  @media(max-width:880px){.shell{grid-template-columns:1fr}nav{display:none}.hero,.content,footer{padding-left:22px;padding-right:22px}.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav>
+    <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
+    <div class="brand"><span class="logo">C</span> Microsoft 365 Copilot</div>
+    <div class="ver">v1.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#how">2. How it works</a><div class="sec">Using Copilot</div><a class="lnk" href="#surfaces">3. Where you use it</a><a class="lnk" href="#chat">4. Copilot Chat</a><a class="lnk" href="#agents">5. Agents</a><div class="sec">Operate</div><a class="lnk" href="#admin">6. Admin & readiness</a><a class="lnk" href="#getstarted">7. Get started</a><a class="lnk" href="#glossary">8. Glossary</a>
+  </nav>
+  <main>
+    <div class="hero">
+      <p class="eyebrow">Productivity &middot; Generative AI</p>
+      <h1>Microsoft 365 Copilot</h1>
+      <p>Your AI assistant woven into the Microsoft 365 apps you use every day &mdash; grounded in your work data through the Microsoft Graph.</p>
+      <div class="pills"><span class="pill">Word &middot; Excel &middot; PowerPoint</span><span class="pill">Outlook &middot; Teams</span><span class="pill">Copilot Chat</span><span class="pill">Agents</span></div>
+    </div>
+    <div class="content">
+      <section id="intro">
+        <h2><span class="badge">1</span> What is Microsoft 365 Copilot?</h2>
+        <p><strong>Microsoft 365 Copilot</strong> combines the power of large language models (LLMs) with your organization's data and the Microsoft 365 apps. It takes natural-language prompts to draft content, summarize, and analyze information &mdash; all grounded in your emails, documents, chats, and meetings via the <strong>Microsoft Graph</strong>.</p><div class="grid3"><div class="card"><h4>LLM + your data</h4>The model reasons over your work content, not just its training data.</div><div class="card"><h4>Inside the apps</h4>Available directly in Word, Excel, PowerPoint, Outlook, and Teams.</div><div class="card"><h4>Enterprise-grade</h4>Your data stays in your tenant and inherits your existing permissions.</div></div><div class="callout info"><b>Grounding is the key idea</b>Copilot doesn't just generate text &mdash; it retrieves relevant content you already have access to, then uses the LLM to reason over it. That grounding is what makes answers specific to your work.</div>
+      </section>
+      <section id="how">
+        <h2><span class="badge">2</span> How Copilot works</h2>
+        <p>Every prompt flows through an orchestration process before and after the model:</p><ol class="steps"><li>You enter a prompt in an app or in Copilot Chat.</li><li>Copilot grounds the prompt using the <strong>Microsoft Graph</strong> &mdash; retrieving the emails, files, and chats you have permission to see.</li><li>The grounded prompt is sent to the LLM, which reasons and generates a response.</li><li>Copilot post-processes the response (compliance, citations) and returns it in the app.</li></ol><div class="callout tip"><b>Permission-aware by design</b>Copilot can only surface content the signed-in user already has access to. It never bypasses your existing Microsoft 365 permissions.</div>
+      </section>
+      <section id="surfaces">
+        <h2><span class="badge">3</span> Where you use Copilot</h2>
+        <div class="grid3"><div class="card"><h4>Word</h4>Draft, rewrite, and summarize documents from a prompt or an existing file.</div><div class="card"><h4>Excel</h4>Analyze data, suggest formulas, spot trends, and build models.</div><div class="card"><h4>PowerPoint</h4>Generate decks from a prompt or a Word doc; restyle and condense.</div><div class="card"><h4>Outlook</h4>Summarize long threads, draft replies, and coach your tone.</div><div class="card"><h4>Teams</h4>Recap meetings, surface action items, and catch up on chats.</div><div class="card"><h4>Copilot Chat</h4>A grounded chat experience over your work data and the web.</div></div>
+      </section>
+      <section id="chat">
+        <h2><span class="badge">4</span> Microsoft 365 Copilot Chat</h2>
+        <p><strong>Copilot Chat</strong> is the conversational hub. It can answer from two grounding sources:</p><table><tr><th>Mode</th><th>Grounded in</th><th>Use it for</th></tr><tr><td>Work</td><td>Your tenant data via Microsoft Graph</td><td>Questions about your projects, docs, and people</td></tr><tr><td>Web</td><td>Bing web search</td><td>General knowledge and current information</td></tr></table><div class="callout info"><b>One prompt box, many agents</b>From Copilot Chat you can call <strong>agents</strong> &mdash; specialized assistants that bring extra skills and knowledge into the conversation.</div>
+      </section>
+      <section id="agents">
+        <h2><span class="badge">5</span> Extending Copilot with agents</h2>
+        <p><strong>Agents</strong> customize and extend Copilot by connecting it to specific knowledge, data sources, and actions. They are packaged and managed just like other Microsoft 365 apps.</p><table><tr><th>Type</th><th>What it is</th><th>Built with</th></tr><tr><td>Declarative agent</td><td>Copilot's model + your instructions, knowledge, and actions</td><td>Agent builder, Copilot Studio</td></tr><tr><td>Custom engine agent</td><td>Your own model/orchestration, surfaced in Copilot</td><td>Pro-code (Teams Toolkit, SDK)</td></tr></table><ul><li>Discover and add agents from the <strong>Agent Store</strong>.</li><li>Connect agents to SharePoint, Dataverse, or line-of-business systems.</li><li>Govern them centrally in the Microsoft 365 admin center.</li></ul>
+      </section>
+      <section id="admin">
+        <h2><span class="badge">6</span> Admin & readiness</h2>
+        <p>Getting a tenant ready is mostly about <strong>data hygiene and governance</strong> so Copilot returns high-quality, appropriately-scoped answers.</p><table><tr><th>Lever</th><th>Why it matters</th></tr><tr><td>SharePoint Advanced Management</td><td>Reduce oversharing and clean up inactive sites so Copilot's sources are trustworthy.</td></tr><tr><td>Restricted SharePoint Search</td><td>Scope what Copilot can ground on while you tidy permissions.</td></tr><tr><td>Sensitivity labels (Purview)</td><td>Classification flows into Copilot responses and exports.</td></tr><tr><td>Microsoft 365 admin center</td><td>License assignment and central agent management.</td></tr></table><div class="callout warn"><b>Oversharing is the #1 risk</b>Copilot makes existing access visible fast. Audit broad-permission sites and links <em>before</em> rollout, not after.</div>
+      </section>
+      <section id="getstarted">
+        <h2><span class="badge">7</span> Get started</h2>
+        <ol class="steps"><li>Assign Microsoft 365 Copilot licenses in the admin center.</li><li>Run a data-readiness pass (SharePoint Advanced Management, label review).</li><li>Pilot with a focused group; gather prompts that work for your roles.</li><li>Roll out with enablement: a prompt library and a few high-value scenarios per team.</li></ol>
+      </section>
+      <section id="glossary">
+        <h2><span class="badge">8</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Grounding</td><td>Retrieving your tenant data to make a prompt specific to your work.</td></tr><tr><td>Microsoft Graph</td><td>The API/data fabric over your Microsoft 365 content and signals.</td></tr><tr><td>Semantic Index</td><td>The index that powers relevant, permission-trimmed retrieval.</td></tr><tr><td>Agent</td><td>A customized assistant that adds knowledge, skills, or actions to Copilot.</td></tr><tr><td>Agent Store</td><td>Where users discover and add agents inside Copilot.</td></tr></table>
+      </section>
+
+    </div>
+    <footer>Microsoft 365 Copilot &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-overview">Microsoft Learn documentation</a>.</footer>
+  </main>
+</div>
+</body>
+</html>

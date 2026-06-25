@@ -1,22 +1,47 @@
 # Training &amp; Development
 
-A private collection of hands-on technical training manuals, each a single self-contained HTML page.
+A collection of hands-on technical training manuals on the Microsoft platform, each a single self-contained HTML page. Grounded in the official Microsoft Learn documentation.
+
+**Live site:** https://yuro75.github.io/training-and-development/
 
 ## Contents
 
-| Manual | Path | Topics |
-| --- | --- | --- |
-| **GitHub Training Manual** | [`github/index.html`](github/index.html) | Git, branching, pull requests, forking, Actions, `gh` CLI |
-| **Microsoft Fabric Manual** | [`fabric/index.html`](fabric/index.html) | OneLake, Lakehouse, Warehouse, Data Factory, notebooks, Power BI Direct Lake, Real-Time Intelligence, governance |
+### Copilot &amp; Agents
+| Manual | Path |
+| --- | --- |
+| Microsoft 365 Copilot | [`m365-copilot/`](m365-copilot/index.html) |
+| Copilot Studio | [`copilot-studio/`](copilot-studio/index.html) |
+| GitHub Copilot | [`github-copilot/`](github-copilot/index.html) |
+| Agent 365 | [`agent-365/`](agent-365/index.html) |
 
-Open [`index.html`](index.html) for the landing hub that links to both.
+### Microsoft IQ (intelligence layer)
+| Manual | Path |
+| --- | --- |
+| Microsoft IQ | [`microsoft-iq/`](microsoft-iq/index.html) |
+| Work IQ | [`work-iq/`](work-iq/index.html) |
+| Foundry IQ | [`foundry-iq/`](foundry-iq/index.html) |
+| Fabric IQ | [`fabric-iq/`](fabric-iq/index.html) |
+
+### Platform &amp; Security
+| Manual | Path |
+| --- | --- |
+| Microsoft Azure | [`azure/`](azure/index.html) |
+| Microsoft Security | [`security/`](security/index.html) |
+
+### Foundations
+| Manual | Path |
+| --- | --- |
+| GitHub (Git) | [`github/`](github/index.html) |
+| Microsoft Fabric | [`fabric/`](fabric/index.html) |
+
+Open [`index.html`](index.html) for the landing hub that links to every manual.
 
 ## Usage
 
-Every manual is a standalone `.html` file with inline CSS &mdash; no build step, no dependencies. Double-click any file to open it in a browser, or browse the hub at `index.html`.
+Every manual is a standalone `.html` file with inline CSS &mdash; no build step, no dependencies. Open any file in a browser, or browse the hub at `index.html`.
 
 ## Adding a new manual
 
-1. Create a new subfolder (e.g. `azure/`) with an `index.html`.
+1. Create a new subfolder (e.g. `power-bi/`) with an `index.html`.
 2. Add a matching card to the landing page `index.html`.
 3. Branch, commit, open a pull request, and merge.
