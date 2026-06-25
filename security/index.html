@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Microsoft Security</title>
 <style>
-  :root{
-    --accent:#0a6e8a; --accent-deep:#062b38; --accent-soft:#e9f6fb;
-    --green:#107c41; --amber:#d29922;
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
-  }
+  :root{--accent:#0a6e8a;--accent-deep:#062b38;--accent-soft:#e9f6fb;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
@@ -19,28 +16,29 @@
   nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
   nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
   nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
   nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
-  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
   nav a.lnk:hover{background:#e7edf1;text-decoration:none}
-  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
   main{padding:0 0 100px}
-  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
   .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
-  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
   .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .content{padding:14px 56px}
-  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
   section:last-child{border-bottom:none}
-  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2{font-size:24px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
   h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
-  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  h3{font-size:17.5px;margin:22px 0 6px;color:var(--ink)}
   p,li{font-size:15px}
   code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
-  pre code{background:none;border:none;padding:0}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--code-bg);font-weight:700}
@@ -69,8 +67,8 @@
   <nav>
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">Se</span> Microsoft Security</div>
-    <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Threat protection</div><a class="lnk" href="#defender-xdr">2. Defender XDR</a><a class="lnk" href="#sentinel">3. Sentinel (SIEM)</a><div class="sec">Identity & data</div><a class="lnk" href="#entra">4. Entra (identity)</a><a class="lnk" href="#purview">5. Purview (data)</a><a class="lnk" href="#intune">6. Intune (devices)</a><div class="sec">Strategy</div><a class="lnk" href="#zero-trust">7. Zero Trust</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">9. Sources</a>
+    <div class="ver">v2.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Threat protection</div><a class="lnk" href="#defender-xdr">2. Defender XDR</a><a class="lnk" href="#sentinel">3. Sentinel (SIEM)</a><a class="lnk" href="#kql">4. Hunting with KQL</a><div class="sec">Identity & data</div><a class="lnk" href="#entra">5. Entra (identity)</a><a class="lnk" href="#purview">6. Purview & Intune</a><div class="sec">Strategy</div><a class="lnk" href="#zero-trust">7. Zero Trust</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">9. Where to start</a><a class="lnk" href="#sources">10. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -86,39 +84,48 @@
       </section>
       <section id="defender-xdr">
         <h2><span class="badge">2</span> Microsoft Defender XDR</h2>
-        <p><strong>Defender XDR</strong> (extended detection &amp; response) unifies and coordinates threat protection, consolidating signals across assets so you manage threats from one place &mdash; the Microsoft Defender portal.</p><table><tr><th>Component</th><th>Protects</th></tr><tr><td>Defender for Endpoint</td><td>Laptops, phones, servers &mdash; the endpoint pillar</td></tr><tr><td>Defender for Identity</td><td>Microsoft Entra ID / on-prem identity threats</td></tr><tr><td>Defender for Office 365</td><td>Email and collaboration (phishing, malware)</td></tr><tr><td>Defender for Cloud Apps</td><td>SaaS app usage and risk</td></tr></table><div class="callout info"><b>One incident queue</b>Defender XDR correlates related alerts into a single incident with the full attack story, instead of a flood of disconnected signals.</div>
+        <p><strong>Defender XDR</strong> (extended detection &amp; response) unifies threat protection, consolidating signals across assets so you manage threats from one place &mdash; the Microsoft Defender portal.</p><table><tr><th>Component</th><th>Protects</th></tr><tr><td>Defender for Endpoint</td><td>Laptops, phones, servers &mdash; the endpoint pillar</td></tr><tr><td>Defender for Identity</td><td>Microsoft Entra ID / on-prem identity threats</td></tr><tr><td>Defender for Office 365</td><td>Email and collaboration (phishing, malware)</td></tr><tr><td>Defender for Cloud Apps</td><td>SaaS app usage and risk</td></tr></table><div class="callout info"><b>One incident queue</b>Defender XDR correlates related alerts into a single incident with the full attack story, instead of a flood of disconnected signals.</div>
       </section>
       <section id="sentinel">
         <h2><span class="badge">3</span> Microsoft Sentinel</h2>
-        <p><strong>Microsoft Sentinel</strong> is the cloud-native SIEM. It ingests security data from across your environment &mdash; cloud and on-prem &mdash; for detection, hunting, and AI-driven, agentic defense.</p><ul><li><strong>Data lake</strong> &mdash; a managed, security-purpose-built lake for scale and retention.</li><li><strong>KQL analytics</strong> &mdash; hunt and detect across all your data.</li><li><strong>Sentinel graph</strong> &mdash; visualize blast radius and attack paths.</li><li>Integrates with Defender XDR for a complete XDR + SIEM solution.</li></ul>
+        <p><strong>Microsoft Sentinel</strong> is the cloud-native SIEM. It ingests security data from across your environment &mdash; cloud and on-prem &mdash; for detection, hunting, and AI-driven defense.</p><ul><li><strong>Data lake</strong> &mdash; a managed, security-purpose-built lake for scale and retention.</li><li><strong>KQL analytics</strong> &mdash; hunt and detect across all your data.</li><li><strong>Sentinel graph</strong> &mdash; visualize blast radius and attack paths.</li><li>Integrates with Defender XDR for a complete XDR + SIEM solution.</li></ul>
+      </section>
+      <section id="kql">
+        <h2><span class="badge">4</span> Threat hunting with KQL</h2>
+        <p>Both Defender advanced hunting and Sentinel use <strong>KQL</strong> (Kusto Query Language). The mental model: start from a table, then pipe (<code>|</code>) it through filters and aggregations.</p><pre><code><span class="cmt">// Top devices running powershell.exe in the last 7 days</span>
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where FileName == "powershell.exe"
+| summarize Runs = count() by DeviceName
+| top 10 by Runs</code></pre><table><tr><th>Operator</th><th>Does</th></tr><tr><td><code>where</code></td><td>Filter rows by a condition</td></tr><tr><td><code>project</code></td><td>Pick / rename columns</td></tr><tr><td><code>summarize</code></td><td>Aggregate (count, sum, avg) by groups</td></tr><tr><td><code>join</code></td><td>Combine two tables on a key</td></tr><tr><td><code>bin()</code> / <code>render</code></td><td>Bucket by time and chart it</td></tr><tr><td><code>top</code> / <code>take</code></td><td>Limit results</td></tr></table><div class="callout tip"><b>Filter early</b>Put your tightest <code>where</code> (especially a time filter like <code>ago(1d)</code>) first &mdash; it makes queries dramatically faster and cheaper.</div>
       </section>
       <section id="entra">
-        <h2><span class="badge">4</span> Microsoft Entra</h2>
+        <h2><span class="badge">5</span> Microsoft Entra</h2>
         <p><strong>Microsoft Entra</strong> secures identity and access &mdash; the foundation of Zero Trust.</p><table><tr><th>Capability</th><th>What it does</th></tr><tr><td>Entra ID</td><td>Authentication, SSO, and directory</td></tr><tr><td>Conditional Access</td><td>Policy-based access decisions per sign-in</td></tr><tr><td>Multifactor Authentication</td><td>Adds verification beyond passwords</td></tr><tr><td>Identity Protection</td><td>Risk-based detection of compromised identities</td></tr></table>
       </section>
       <section id="purview">
-        <h2><span class="badge">5</span> Microsoft Purview</h2>
-        <p><strong>Microsoft Purview</strong> governs and protects data: classification, sensitivity labels, data loss prevention, insider-risk management, and compliance &mdash; spanning Microsoft 365 and beyond.</p><div class="callout tip"><b>Labels travel</b>A Purview sensitivity label stays with the content &mdash; into exports, Copilot responses, and shared files &mdash; enforcing protection wherever the data goes.</div>
-      </section>
-      <section id="intune">
-        <h2><span class="badge">6</span> Microsoft Intune</h2>
-        <p><strong>Microsoft Intune</strong> manages and secures devices and apps (mobile device and application management), enforcing compliance that Conditional Access can require before granting access.</p>
+        <h2><span class="badge">6</span> Purview (data) & Intune (devices)</h2>
+        <div class="grid2"><div class="card"><h4>Microsoft Purview</h4>Governs and protects data: classification, sensitivity labels, DLP, insider-risk, and compliance &mdash; across Microsoft 365 and beyond.</div><div class="card"><h4>Microsoft Intune</h4>Manages and secures devices and apps; enforces the compliance that Conditional Access can require before granting access.</div></div><div class="callout tip"><b>Labels travel</b>A Purview sensitivity label stays with the content &mdash; into exports, Copilot answers, and shared files &mdash; enforcing protection wherever data goes.</div>
       </section>
       <section id="zero-trust">
         <h2><span class="badge">7</span> Zero Trust principles</h2>
-        <table><tr><th>Principle</th><th>Meaning</th></tr><tr><td>Verify explicitly</td><td>Authenticate and authorize on all available signals</td></tr><tr><td>Least-privilege access</td><td>Limit access with just-in-time, just-enough rights</td></tr><tr><td>Assume breach</td><td>Segment, encrypt, and monitor as if attackers are inside</td></tr></table><div class="callout info"><b>Defense in depth</b>The products reinforce each other: Entra verifies identity, Intune attests the device, Defender watches the endpoint, Purview protects the data, and Sentinel ties it all together.</div>
+        <table><tr><th>Principle</th><th>Meaning</th></tr><tr><td>Verify explicitly</td><td>Authenticate and authorize on all available signals</td></tr><tr><td>Least-privilege access</td><td>Limit access with just-in-time, just-enough rights</td></tr><tr><td>Assume breach</td><td>Segment, encrypt, and monitor as if attackers are inside</td></tr></table><div class="callout info"><b>Defense in depth</b>Entra verifies identity, Intune attests the device, Defender watches the endpoint, Purview protects the data, and Sentinel ties it all together.</div>
       </section>
       <section id="glossary">
         <h2><span class="badge">8</span> Glossary</h2>
-        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>XDR</td><td>Extended Detection and Response across multiple domains.</td></tr><tr><td>SIEM</td><td>Security Information and Event Management (Sentinel).</td></tr><tr><td>Zero Trust</td><td>Security model: verify explicitly, least privilege, assume breach.</td></tr><tr><td>Conditional Access</td><td>Entra policies that gate access per sign-in.</td></tr><tr><td>DLP</td><td>Data Loss Prevention &mdash; stops sensitive data leaving.</td></tr></table>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>XDR</td><td>Extended Detection and Response across multiple domains.</td></tr><tr><td>SIEM</td><td>Security Information and Event Management (Sentinel).</td></tr><tr><td>Zero Trust</td><td>Verify explicitly, least privilege, assume breach.</td></tr><tr><td>Conditional Access</td><td>Entra policies that gate access per sign-in.</td></tr><tr><td>KQL</td><td>Kusto Query Language, used for hunting and analytics.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">9</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/security/zero-trust/zero-trust-overview" target="_blank" rel="noopener">Zero Trust overview</a></li><li><a href="https://learn.microsoft.com/defender-xdr/microsoft-365-defender" target="_blank" rel="noopener">Microsoft Defender XDR</a></li><li><a href="https://learn.microsoft.com/azure/sentinel/overview" target="_blank" rel="noopener">What is Microsoft Sentinel?</a></li><li><a href="https://learn.microsoft.com/defender-xdr/advanced-hunting-query-language" target="_blank" rel="noopener">Learn the advanced hunting (KQL) query language</a></li><li><a href="https://learn.microsoft.com/defender-xdr/advanced-hunting-best-practices" target="_blank" rel="noopener">Advanced hunting query best practices</a></li></ul>
       </section>
       <section id="sources">
-        <h2><span class="badge">9</span> Sources</h2>
-        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/security/" target="_blank" rel="noopener">Microsoft Security documentation</a></li><li><a href="https://learn.microsoft.com/defender-xdr/microsoft-365-defender" target="_blank" rel="noopener">Microsoft Defender XDR</a></li><li><a href="https://learn.microsoft.com/azure/sentinel/overview" target="_blank" rel="noopener">What is Microsoft Sentinel?</a></li><li><a href="https://learn.microsoft.com/defender-endpoint/microsoft-defender-endpoint" target="_blank" rel="noopener">Microsoft Defender for Endpoint</a></li><li><a href="https://learn.microsoft.com/security/zero-trust/zero-trust-overview" target="_blank" rel="noopener">Zero Trust overview</a></li><li><a href="https://learn.microsoft.com/entra/fundamentals/whatis" target="_blank" rel="noopener">Microsoft Entra fundamentals</a></li><li><a href="https://learn.microsoft.com/purview/purview" target="_blank" rel="noopener">Microsoft Purview</a></li><li><a href="https://learn.microsoft.com/mem/intune/fundamentals/what-is-intune" target="_blank" rel="noopener">What is Microsoft Intune?</a></li></ul>
+        <h2><span class="badge">10</span> Sources</h2>
+        <p>This manual is grounded in the official documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/security/" target="_blank" rel="noopener">Microsoft Security documentation</a></li><li><a href="https://learn.microsoft.com/defender-xdr/microsoft-365-defender" target="_blank" rel="noopener">Microsoft Defender XDR</a></li><li><a href="https://learn.microsoft.com/azure/sentinel/overview" target="_blank" rel="noopener">What is Microsoft Sentinel?</a></li><li><a href="https://learn.microsoft.com/defender-endpoint/microsoft-defender-endpoint" target="_blank" rel="noopener">Microsoft Defender for Endpoint</a></li><li><a href="https://learn.microsoft.com/security/zero-trust/zero-trust-overview" target="_blank" rel="noopener">Zero Trust overview</a></li><li><a href="https://learn.microsoft.com/defender-xdr/advanced-hunting-query-language" target="_blank" rel="noopener">Learn the advanced hunting query language</a></li><li><a href="https://learn.microsoft.com/entra/fundamentals/whatis" target="_blank" rel="noopener">Microsoft Entra fundamentals</a></li><li><a href="https://learn.microsoft.com/purview/purview" target="_blank" rel="noopener">Microsoft Purview</a></li></ul>
       </section>
 
     </div>
-    <footer>Microsoft Security &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/security/">Microsoft Learn documentation</a>.</footer>
+    <footer>Microsoft Security &middot; Training &amp; Development &middot; v2.0, generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/security/">Microsoft documentation</a>.</footer>
   </main>
 </div>
 </body>

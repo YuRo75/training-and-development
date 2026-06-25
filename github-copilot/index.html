@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitHub Copilot</title>
 <style>
-  :root{
-    --accent:#1f883d; --accent-deep:#0d1117; --accent-soft:#eafaf0;
-    --green:#107c41; --amber:#d29922;
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
-  }
+  :root{--accent:#1f883d;--accent-deep:#0d1117;--accent-soft:#eafaf0;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
@@ -19,28 +16,29 @@
   nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
   nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
   nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
   nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
-  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
   nav a.lnk:hover{background:#e7edf1;text-decoration:none}
-  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
   main{padding:0 0 100px}
-  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
   .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
-  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
   .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .content{padding:14px 56px}
-  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
   section:last-child{border-bottom:none}
-  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2{font-size:24px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
   h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
-  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  h3{font-size:17.5px;margin:22px 0 6px;color:var(--ink)}
   p,li{font-size:15px}
   code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
-  pre code{background:none;border:none;padding:0}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--code-bg);font-weight:700}
@@ -68,57 +66,68 @@
 <div class="shell">
   <nav>
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
-    <div class="brand"><span class="logo">G</span> GitHub Copilot</div>
-    <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Capabilities</div><a class="lnk" href="#modes">2. Ways to use it</a><a class="lnk" href="#agent-mode">3. Agent mode</a><a class="lnk" href="#where">4. Where it runs</a><a class="lnk" href="#context">5. Giving context</a><div class="sec">Operate</div><a class="lnk" href="#plans">6. Plans & admin</a><a class="lnk" href="#tips">7. Tips</a><a class="lnk" href="#glossary">8. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">9. Sources</a>
+    <div class="brand"><span class="logo">GC</span> GitHub Copilot</div>
+    <div class="ver">v2.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><div class="sec">Capabilities</div><a class="lnk" href="#modes">2. Ways to use it</a><a class="lnk" href="#agent-mode">3. Agent mode</a><a class="lnk" href="#cli">4. In the terminal</a><a class="lnk" href="#where">5. Where it runs</a><div class="sec">Getting better results</div><a class="lnk" href="#context">6. Giving context</a><a class="lnk" href="#tips">7. Tips</a><div class="sec">Operate</div><a class="lnk" href="#plans">8. Plans & admin</a><a class="lnk" href="#glossary">9. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">10. Where to start</a><a class="lnk" href="#sources">11. Sources</a>
   </nav>
   <main>
     <div class="hero">
       <p class="eyebrow">Developer &middot; AI pair programmer</p>
       <h1>GitHub Copilot</h1>
-      <p>Your AI pair programmer &mdash; from inline code completions to an autonomous agent that plans, edits, and runs across your whole codebase.</p>
+      <p>Your AI pair programmer &mdash; from inline completions to an autonomous agent that plans, edits, and runs across your whole codebase.</p>
       <div class="pills"><span class="pill">Code completion</span><span class="pill">Chat</span><span class="pill">Agent mode</span><span class="pill">Across IDEs</span></div>
     </div>
     <div class="content">
       <section id="intro">
         <h2><span class="badge">1</span> What is GitHub Copilot?</h2>
-        <p><strong>GitHub Copilot</strong> is an AI coding assistant that suggests code and entire functions in real time, answers questions about your code, and can take on multi-step development tasks. It works inside your editor and on GitHub.com.</p><div class="callout info"><b>Distinct from the GitHub manual</b>This manual covers the <em>AI assistant</em>. For Git, repositories, branches, and pull requests, see the <a href="../github/index.html">GitHub Training Manual</a>.</div>
+        <p><strong>GitHub Copilot</strong> is an AI coding assistant that suggests code in real time, answers questions about your code, and can take on multi-step tasks. It works inside your editor and on GitHub.com.</p><div class="callout info"><b>Different from the GitHub manual</b>This covers the <em>AI assistant</em>. For Git, repos, branches, and pull requests, see the <a href="../github/index.html">GitHub Training Manual</a>.</div>
       </section>
       <section id="modes">
         <h2><span class="badge">2</span> The ways to use Copilot</h2>
-        <table><tr><th>Mode</th><th>What it does</th><th>Best for</th></tr><tr><td>Code completion</td><td>Inline, grey-text suggestions as you type</td><td>Speeding up everyday coding</td></tr><tr><td>Ask (chat)</td><td>Conversational Q&amp;A about code</td><td>Explaining, debugging, learning</td></tr><tr><td>Edit</td><td>Apply scoped changes across selected files</td><td>Targeted, reviewable edits</td></tr><tr><td>Agent mode</td><td>Autonomous, multi-step task execution</td><td>Larger changes across the codebase</td></tr><tr><td>Plan agent</td><td>Builds an implementation plan first</td><td>Thinking before changing code</td></tr></table>
+        <table><tr><th>Mode</th><th>What it does</th><th>Best for</th></tr><tr><td>Code completion</td><td>Inline grey-text suggestions as you type</td><td>Everyday coding speed</td></tr><tr><td>Ask (chat)</td><td>Conversational Q&amp;A about code</td><td>Explaining, debugging, learning</td></tr><tr><td>Edit</td><td>Scoped changes across selected files</td><td>Targeted, reviewable edits</td></tr><tr><td>Agent mode</td><td>Autonomous, multi-step execution</td><td>Larger cross-codebase changes</td></tr><tr><td>Plan agent</td><td>Builds an implementation plan first</td><td>Thinking before changing code</td></tr></table>
       </section>
       <section id="agent-mode">
         <h2><span class="badge">3</span> Agent mode</h2>
-        <p>In <strong>agent mode</strong> you give a high-level task in natural language. Copilot determines the steps, edits code, runs terminal commands, invokes tools, and monitors outcomes &mdash; build results, test failures, tool output &mdash; iterating until the goal is met.</p><div class="grid3"><div class="card"><h4>Multi-step workflows</h4>"Connect to the dev DB, switch to AdventureWorks, then list tables with a foreign key to Customer."</div><div class="card"><h4>Exploration at scale</h4>"Find every stored procedure that references SalesOrderHeader and summarize each."</div><div class="card"><h4>Delegated changes</h4>"Add audit columns to every table in the Sales schema and regenerate the procedures."</div></div><div class="callout tip"><b>Plan, then act</b>Use the <strong>plan agent</strong> to create an implementation plan (saved as markdown) before agent mode makes changes &mdash; you review the approach first.</div>
+        <p>In <strong>agent mode</strong> you give a high-level task. Copilot determines the steps, edits code, runs terminal commands, invokes tools, and monitors outcomes (build results, test failures), iterating until the goal is met.</p><div class="grid3"><div class="card"><h4>Multi-step</h4>"Connect to dev DB, switch to AdventureWorks, list tables with a FK to Customer."</div><div class="card"><h4>Explore at scale</h4>"Find every proc referencing SalesOrderHeader and summarize each."</div><div class="card"><h4>Delegated changes</h4>"Add audit columns to every table in Sales and regenerate the procs."</div></div><div class="callout tip"><b>Plan, then act</b>Use the <strong>plan agent</strong> to produce an implementation plan (saved as markdown) before agent mode changes anything &mdash; you review the approach first.</div>
+      </section>
+      <section id="cli">
+        <h2><span class="badge">4</span> Copilot in the command line</h2>
+        <p>The <strong>GitHub CLI</strong> extension brings Copilot to your terminal &mdash; suggest a command or explain one you don't recognize.</p><pre><code>gh extension install github/gh-copilot
+
+gh copilot suggest "compress all png files in this folder"
+gh copilot explain "git rebase -i HEAD~3"</code></pre>
       </section>
       <section id="where">
-        <h2><span class="badge">4</span> Where Copilot runs</h2>
-        <ul><li><strong>Visual Studio</strong> and <strong>VS Code</strong></li><li><strong>JetBrains</strong> IDEs, Neovim, Eclipse, Xcode</li><li><strong>SQL Server Management Studio</strong> (T-SQL help)</li><li>The <strong>GitHub CLI</strong> (<code>gh copilot</code>) and the command line</li><li><strong>GitHub.com</strong> (Copilot Chat) and GitHub Mobile</li></ul>
+        <h2><span class="badge">5</span> Where Copilot runs</h2>
+        <ul><li><strong>Visual Studio</strong> and <strong>VS Code</strong></li><li><strong>JetBrains</strong> IDEs, Neovim, Eclipse, Xcode</li><li><strong>SQL Server Management Studio</strong> (T-SQL help)</li><li>The <strong>GitHub CLI</strong> and command line</li><li><strong>GitHub.com</strong> (Copilot Chat) and GitHub Mobile</li></ul>
       </section>
       <section id="context">
-        <h2><span class="badge">5</span> Giving Copilot context</h2>
-        <p>Better context yields better suggestions:</p><table><tr><th>Technique</th><th>Effect</th></tr><tr><td><code>#file</code> / selection</td><td>Point Copilot at specific files or code</td></tr><tr><td><code>@workspace</code></td><td>Reason over the whole project</td></tr><tr><td>Custom instructions</td><td>A repo file that tells Copilot your conventions</td></tr><tr><td>MCP servers</td><td>Give Copilot standardized external tools and data</td></tr></table><div class="callout info"><b>Custom instructions pay off</b>A short <code>.github/copilot-instructions.md</code> describing your stack and standards measurably improves answer quality.</div>
-      </section>
-      <section id="plans">
-        <h2><span class="badge">6</span> Plans & administration</h2>
-        <table><tr><th>Plan</th><th>For</th></tr><tr><td>Copilot Free</td><td>Light individual use with monthly limits</td></tr><tr><td>Copilot Pro / Pro+</td><td>Individual developers wanting full access</td></tr><tr><td>Copilot Business</td><td>Teams &mdash; policy management and seat assignment</td></tr><tr><td>Copilot Enterprise</td><td>Org-wide, with knowledge bases and more controls</td></tr></table><div class="callout warn"><b>Admins set the guardrails</b>Business/Enterprise admins control content exclusions, public-code matching, and which features are enabled.</div>
+        <h2><span class="badge">6</span> Giving Copilot context</h2>
+        <table><tr><th>Technique</th><th>Effect</th></tr><tr><td><code>#file</code> / selection</td><td>Point Copilot at specific files or code</td></tr><tr><td><code>@workspace</code></td><td>Reason over the whole project</td></tr><tr><td>Custom instructions</td><td>A repo file that states your conventions</td></tr><tr><td>MCP servers</td><td>Give Copilot standardized external tools and data</td></tr></table><div class="callout info"><b>Custom instructions pay off</b>A short <code>.github/copilot-instructions.md</code> describing your stack and standards measurably improves answer quality.</div>
       </section>
       <section id="tips">
         <h2><span class="badge">7</span> Tips for great results</h2>
-        <ul><li>Write a clear comment or function signature first &mdash; Copilot completes intent.</li><li>Keep files open that are relevant; Copilot uses neighbouring context.</li><li>Break big asks into reviewable steps; prefer edit/agent mode with small diffs.</li><li>Always review and test AI-generated code before committing.</li></ul>
+        <ul><li>Write a clear comment or function signature first &mdash; Copilot completes intent.</li><li>Keep relevant files open; Copilot uses neighbouring context.</li><li>Break big asks into reviewable steps; prefer edit/agent mode with small diffs.</li><li>Always review and test AI-generated code before committing.</li></ul>
+      </section>
+      <section id="plans">
+        <h2><span class="badge">8</span> Plans & administration</h2>
+        <table><tr><th>Plan</th><th>For</th></tr><tr><td>Copilot Free</td><td>Light individual use with monthly limits</td></tr><tr><td>Copilot Pro / Pro+</td><td>Individual developers wanting full access</td></tr><tr><td>Copilot Business</td><td>Teams &mdash; policy management and seats</td></tr><tr><td>Copilot Enterprise</td><td>Org-wide, with knowledge bases and more controls</td></tr></table><div class="callout warn"><b>Admins set the guardrails</b>Business/Enterprise admins control content exclusions, public-code matching, and which features are on.</div>
       </section>
       <section id="glossary">
-        <h2><span class="badge">8</span> Glossary</h2>
-        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Completion</td><td>Inline code suggestion as you type.</td></tr><tr><td>Ask mode</td><td>Conversational chat that answers but doesn't change files.</td></tr><tr><td>Agent mode</td><td>Autonomous, iterative multi-step task execution.</td></tr><tr><td>Plan agent</td><td>Produces an implementation plan before changes.</td></tr><tr><td>MCP</td><td>Model Context Protocol &mdash; standardized tools/data for the AI.</td></tr></table>
+        <h2><span class="badge">9</span> Glossary</h2>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Completion</td><td>Inline code suggestion as you type.</td></tr><tr><td>Ask mode</td><td>Chat that answers but doesn't change files.</td></tr><tr><td>Agent mode</td><td>Autonomous, iterative multi-step execution.</td></tr><tr><td>Plan agent</td><td>Produces an implementation plan before changes.</td></tr><tr><td>MCP</td><td>Model Context Protocol &mdash; standardized tools/data for the AI.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">10</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://docs.github.com/copilot/quickstart" target="_blank" rel="noopener">GitHub Copilot quickstart</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-get-started" target="_blank" rel="noopener">Get started with GitHub Copilot (Visual Studio)</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-agent-mode" target="_blank" rel="noopener">GitHub Copilot agent mode</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-plan-agent" target="_blank" rel="noopener">GitHub Copilot plan agent</a></li><li><a href="https://docs.github.com/copilot" target="_blank" rel="noopener">GitHub Copilot documentation</a></li></ul>
       </section>
       <section id="sources">
-        <h2><span class="badge">9</span> Sources</h2>
-        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://docs.github.com/copilot" target="_blank" rel="noopener">GitHub Copilot documentation</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-get-started" target="_blank" rel="noopener">Get started with GitHub Copilot (Visual Studio)</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-agent-mode" target="_blank" rel="noopener">GitHub Copilot agent mode</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-plan-agent" target="_blank" rel="noopener">GitHub Copilot plan agent</a></li><li><a href="https://learn.microsoft.com/ssms/github-copilot/overview" target="_blank" rel="noopener">GitHub Copilot in SQL Server Management Studio</a></li></ul>
+        <h2><span class="badge">11</span> Sources</h2>
+        <p>This manual is grounded in the official documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://docs.github.com/copilot" target="_blank" rel="noopener">GitHub Copilot documentation</a></li><li><a href="https://docs.github.com/copilot/quickstart" target="_blank" rel="noopener">GitHub Copilot quickstart</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-get-started" target="_blank" rel="noopener">Get started with GitHub Copilot (Visual Studio)</a></li><li><a href="https://learn.microsoft.com/visualstudio/ide/copilot-agent-mode" target="_blank" rel="noopener">GitHub Copilot agent mode</a></li><li><a href="https://learn.microsoft.com/ssms/github-copilot/overview" target="_blank" rel="noopener">GitHub Copilot in SQL Server Management Studio</a></li></ul>
       </section>
 
     </div>
-    <footer>GitHub Copilot &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://docs.github.com/copilot">Microsoft Learn documentation</a>.</footer>
+    <footer>GitHub Copilot &middot; Training &amp; Development &middot; v2.0, generated 25 June 2026. Grounded in the official <a href="https://docs.github.com/copilot">Microsoft documentation</a>.</footer>
   </main>
 </div>
 </body>

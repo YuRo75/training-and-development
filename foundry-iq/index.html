@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Foundry IQ</title>
 <style>
-  :root{
-    --accent:#4f46e5; --accent-deep:#1e1b4b; --accent-soft:#eef2ff;
-    --green:#107c41; --amber:#d29922;
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
-  }
+  :root{--accent:#4f46e5;--accent-deep:#1e1b4b;--accent-soft:#eef2ff;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
@@ -19,28 +16,29 @@
   nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
   nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
   nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
   nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
-  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
   nav a.lnk:hover{background:#e7edf1;text-decoration:none}
-  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
   main{padding:0 0 100px}
-  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
   .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
-  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
   .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .content{padding:14px 56px}
-  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
   section:last-child{border-bottom:none}
-  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2{font-size:24px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
   h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
-  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  h3{font-size:17.5px;margin:22px 0 6px;color:var(--ink)}
   p,li{font-size:15px}
   code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
-  pre code{background:none;border:none;padding:0}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--code-bg);font-weight:700}
@@ -68,9 +66,9 @@
 <div class="shell">
   <nav>
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
-    <div class="brand"><span class="logo">F</span> Foundry IQ</div>
-    <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#context">2. What it provides</a><a class="lnk" href="#relationship">3. The three IQs</a><div class="sec">Using Foundry IQ</div><a class="lnk" href="#how">4. How to use it</a><a class="lnk" href="#glossary">5. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">6. Sources</a>
+    <div class="brand"><span class="logo">Fo</span> Foundry IQ</div>
+    <div class="ver">v2.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#context">2. What it provides</a><a class="lnk" href="#relationship">3. The three IQs</a><div class="sec">Using Foundry IQ</div><a class="lnk" href="#how">4. Add it to an agent</a><a class="lnk" href="#glossary">5. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">6. Where to start</a><a class="lnk" href="#sources">7. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -82,31 +80,35 @@
     <div class="content">
       <section id="intro">
         <h2><span class="badge">1</span> What is Foundry IQ?</h2>
-        <p><strong>Foundry IQ</strong> is one of three IQ workloads in <a href="../microsoft-iq/index.html">Microsoft IQ</a> that give agents access to different aspects of your organization. Foundry IQ, part of <strong>Azure AI Foundry</strong>, provides agents with <strong>knowledge</strong> &mdash; your organization's policies and authoritative documents.</p><div class="callout info"><b>The "what's true" pillar</b>If Work IQ knows how you work and Fabric IQ knows your data, Foundry IQ knows your <em>authoritative knowledge</em> &mdash; the documents and policies an agent should treat as the source of truth.</div>
+        <p><strong>Foundry IQ</strong> is one of three IQ workloads in <a href="../microsoft-iq/index.html">Microsoft IQ</a> that give agents access to different aspects of your organization. Part of <strong>Azure AI Foundry</strong>, it provides agents with <strong>knowledge</strong> &mdash; your organization's policies and authoritative documents.</p><div class="callout info"><b>The "what's true" pillar</b>If Work IQ knows how you work and Fabric IQ knows your data, Foundry IQ knows your <em>authoritative knowledge</em> &mdash; the documents and policies an agent should treat as the source of truth.</div>
       </section>
       <section id="context">
         <h2><span class="badge">2</span> What it provides</h2>
-        <div class="grid3"><div class="card"><h4>Authoritative documents</h4>The canonical content an agent should ground answers in.</div><div class="card"><h4>Organizational policies</h4>Rules and guidance the agent must respect.</div><div class="card"><h4>Retrieval</h4>Relevant knowledge fetched and supplied to the model at run time.</div></div><div class="callout tip"><b>Grounding done right</b>Foundry IQ handles the retrieval-augmented grounding so your Foundry agents answer from approved knowledge rather than the model's training data alone.</div>
+        <div class="grid3"><div class="card"><h4>Authoritative documents</h4>The canonical content an agent should ground answers in.</div><div class="card"><h4>Organizational policies</h4>Rules and guidance the agent must respect.</div><div class="card"><h4>Retrieval</h4>Relevant knowledge fetched and supplied to the model at run time.</div></div><div class="callout tip"><b>Grounding done right</b>Foundry IQ handles retrieval-augmented grounding so your Foundry agents answer from approved knowledge, not the model's training data alone.</div>
       </section>
       <section id="relationship">
         <h2><span class="badge">3</span> Relationship to Fabric IQ & Work IQ</h2>
-        <p>Microsoft provides three IQ workloads that give agents access to different aspects of your organization:</p><table><tr><th>Workload</th><th>Layer</th><th>Grounds agents in</th></tr><tr><td><a href="../fabric-iq/index.html">Fabric IQ</a></td><td>Semantic intelligence for Fabric</td><td>Business data &mdash; ontologies, models, graphs over OneLake &amp; Power BI</td></tr><tr><td><a href="../work-iq/index.html">Work IQ</a></td><td>Contextual intelligence for M365</td><td>Collaboration signals &mdash; docs, meetings, chats, workflows</td></tr><tr><td>Foundry IQ</td><td>Knowledge for Foundry agents</td><td>Authoritative documents and policies</td></tr></table>
+        <table><tr><th>Workload</th><th>Layer</th><th>Grounds agents in</th></tr><tr><td><a href="../fabric-iq/index.html">Fabric IQ</a></td><td>Semantic intelligence for Fabric</td><td>Business data &mdash; ontologies, models, graphs over OneLake &amp; Power BI</td></tr><tr><td><a href="../work-iq/index.html">Work IQ</a></td><td>Contextual intelligence for M365</td><td>Collaboration signals &mdash; docs, meetings, chats, workflows</td></tr><tr><td>Foundry IQ</td><td>Knowledge for Foundry agents</td><td>Authoritative documents and policies</td></tr></table>
       </section>
       <section id="how">
-        <h2><span class="badge">4</span> How to use it</h2>
-        <ol class="steps"><li>In <strong>Azure AI Foundry</strong>, connect your authoritative knowledge sources.</li><li>Attach Foundry IQ knowledge to an agent so it grounds responses on that content.</li><li>The agent retrieves relevant knowledge at run time and cites it.</li><li>Combine with Work IQ / Fabric IQ for a complete organizational view.</li></ol><div class="callout warn"><b>Preview & evolving</b>Foundry IQ is part of the evolving Microsoft IQ family; capabilities and APIs may change. Avoid hard-coded dependencies on preview interfaces.</div>
+        <h2><span class="badge">4</span> Add it to an agent</h2>
+        <ol class="steps"><li>In <strong>Azure AI Foundry</strong>, connect your authoritative knowledge sources.</li><li>Attach a <strong>Foundry IQ knowledge base</strong> to a hosted agent.</li><li>The agent retrieves relevant knowledge at run time and cites it.</li><li>Combine with Work IQ / Fabric IQ for a complete organizational view.</li></ol><div class="callout info"><b>Code or low-code</b>Build agents in the Foundry portal, or with the Foundry SDK (Python, C#, TypeScript, Java) and REST &mdash; see the quickstarts in the learning path.</div>
       </section>
       <section id="glossary">
         <h2><span class="badge">5</span> Glossary</h2>
-        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Foundry IQ</td><td>The Azure AI Foundry knowledge layer for agents.</td></tr><tr><td>Azure AI Foundry</td><td>Microsoft's platform for building and running AI agents.</td></tr><tr><td>Knowledge</td><td>Authoritative documents/policies an agent grounds on.</td></tr><tr><td>Retrieval</td><td>Fetching relevant knowledge to supply to the model at run time.</td></tr></table>
+        <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Foundry IQ</td><td>The Azure AI Foundry knowledge layer for agents.</td></tr><tr><td>Azure AI Foundry</td><td>Microsoft's platform for building and running AI agents.</td></tr><tr><td>Knowledge base</td><td>Authoritative documents/policies an agent grounds on.</td></tr><tr><td>Retrieval</td><td>Fetching relevant knowledge to supply to the model at run time.</td></tr></table>
+      </section>
+      <section id="learn">
+        <h2><span class="badge">6</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-foundry-iq-hosted-agent" target="_blank" rel="noopener">Quickstart: Add a Foundry IQ knowledge base to a hosted agent</a></li><li><a href="https://learn.microsoft.com/azure/foundry/quickstarts/get-started-code" target="_blank" rel="noopener">Quickstart: Get started with the Microsoft Foundry SDK</a></li></ul>
       </section>
       <section id="sources">
-        <h2><span class="badge">6</span> Sources</h2>
-        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents (preview)</a></li></ul>
+        <h2><span class="badge">7</span> Sources</h2>
+        <p>This manual is grounded in the official documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq" target="_blank" rel="noopener">What is Foundry IQ?</a></li><li><a href="https://learn.microsoft.com/azure/foundry/agents/quickstarts/quickstart-foundry-iq-hosted-agent" target="_blank" rel="noopener">Quickstart: Foundry IQ knowledge base for a hosted agent</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents (preview)</a></li></ul>
       </section>
 
     </div>
-    <footer>Foundry IQ &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq">Microsoft Learn documentation</a>.</footer>
+    <footer>Foundry IQ &middot; Training &amp; Development &middot; v2.0, generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/azure/foundry/agents/concepts/what-is-foundry-iq">Microsoft documentation</a>.</footer>
   </main>
 </div>
 </body>

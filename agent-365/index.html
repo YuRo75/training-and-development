@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Microsoft Agent 365</title>
 <style>
-  :root{
-    --accent:#5b3fd4; --accent-deep:#241356; --accent-soft:#f1effe;
-    --green:#107c41; --amber:#d29922;
-    --ink:#1f2328; --muted:#5b6770; --line:#d7dee0; --bg:#ffffff; --code-bg:#f5f7f9; --sidebar:#f5f7f9;
-  }
+  :root{--accent:#5b3fd4;--accent-deep:#241356;--accent-soft:#f1effe;
+    --green:#107c41;--amber:#d29922;--ink:#1f2328;--muted:#5b6770;--line:#d7dee0;--bg:#ffffff;--code-bg:#f5f7f9;--sidebar:#f5f7f9}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,'Segoe UI',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
@@ -19,28 +16,29 @@
   nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--sidebar);border-right:1px solid var(--line);padding:24px 18px}
   nav .home{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);margin-bottom:16px}
   nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink)}
-  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:none}
+  nav .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex:none}
   nav .ver{font-size:12px;color:var(--muted);margin-bottom:18px}
-  nav a.lnk{display:block;color:var(--ink);font-size:14px;padding:6px 10px;border-radius:6px;margin:2px 0}
+  nav a.lnk{display:block;color:var(--ink);font-size:13.5px;padding:5px 10px;border-radius:6px;margin:1px 0}
   nav a.lnk:hover{background:#e7edf1;text-decoration:none}
-  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:18px 0 6px;padding-left:10px}
+  nav .sec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin:16px 0 5px;padding-left:10px}
   main{padding:0 0 100px}
-  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:52px 56px 42px}
+  .hero{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;padding:50px 56px 40px}
   .hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.85;margin:0 0 10px}
   .hero h1{margin:0 0 12px;font-size:34px;font-weight:800}
-  .hero p{font-size:17px;opacity:.93;max-width:660px;margin:0}
+  .hero p{font-size:17px;opacity:.93;max-width:680px;margin:0}
   .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:600}
-  .content{padding:14px 56px}
-  section{padding:28px 0;border-bottom:1px solid var(--line)}
+  .content{padding:14px 56px;max-width:1000px}
+  section{padding:26px 0;border-bottom:1px solid var(--line)}
   section:last-child{border-bottom:none}
-  h2{font-size:25px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+  h2{font-size:24px;margin:6px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
   h2 .badge{font-size:13px;font-weight:700;color:#fff;background:var(--accent);border-radius:20px;min-width:28px;height:28px;padding:0 8px;display:inline-flex;align-items:center;justify-content:center}
-  h3{font-size:18px;margin:22px 0 6px;color:var(--ink)}
+  h3{font-size:17.5px;margin:22px 0 6px;color:var(--ink)}
   p,li{font-size:15px}
   code{background:var(--code-bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'SFMono-Regular',Consolas,monospace;font-size:13px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.5}
-  pre code{background:none;border:none;padding:0}
+  pre{background:#0f1720;color:#e6edf3;border:1px solid #20303d;border-radius:10px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.55}
+  pre code{background:none;border:none;padding:0;color:inherit}
+  .cmt{color:#7d8da3}
   table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{background:var(--code-bg);font-weight:700}
@@ -69,8 +67,8 @@
   <nav>
     <a class="home" href="../index.html">&#8592; Training &amp; Development</a>
     <div class="brand"><span class="logo">A</span> Agent 365</div>
-    <div class="ver">v1.0 &middot; June 2026</div>
-    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#why">2. Why it exists</a><div class="sec">Capabilities</div><a class="lnk" href="#pillars">3. What it provides</a><a class="lnk" href="#registry">4. Agent Registry</a><div class="sec">Operate</div><a class="lnk" href="#lifecycle">5. Agent lifecycle</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Reference</div><a class="lnk" href="#sources">7. Sources</a>
+    <div class="ver">v2.0 &middot; June 2026</div>
+    <div class="sec">Foundations</div><a class="lnk" href="#intro">1. What is it?</a><a class="lnk" href="#why">2. Why it exists</a><div class="sec">Capabilities</div><a class="lnk" href="#pillars">3. What it provides</a><a class="lnk" href="#registry">4. Agent Registry</a><div class="sec">Operate</div><a class="lnk" href="#lifecycle">5. Agent lifecycle</a><a class="lnk" href="#glossary">6. Glossary</a><div class="sec">Go further</div><a class="lnk" href="#learn">7. Where to start</a><a class="lnk" href="#sources">8. Sources</a>
   </nav>
   <main>
     <div class="hero">
@@ -86,7 +84,7 @@
       </section>
       <section id="why">
         <h2><span class="badge">2</span> Why it exists</h2>
-        <p>Agents are multiplying fast &mdash; built in Copilot Studio, Azure AI Foundry, by partners, and in-house. Without a control plane you get <strong>agent sprawl</strong>: unknown agents, unclear access, and no consistent oversight.</p><div class="grid3"><div class="card"><h4>Visibility</h4>Know which agents exist and what they can do.</div><div class="card"><h4>Control</h4>Apply consistent policy and access across all of them.</div><div class="card"><h4>Trust</h4>Secure and audit agents like any other enterprise identity.</div></div>
+        <p>Agents are multiplying fast &mdash; built in Copilot Studio, Azure AI Foundry, by partners, and in-house. Without a control plane you get <strong>agent sprawl</strong>: unknown agents, unclear access, no consistent oversight.</p><div class="grid3"><div class="card"><h4>Visibility</h4>Know which agents exist and what they can do.</div><div class="card"><h4>Control</h4>Apply consistent policy and access across all of them.</div><div class="card"><h4>Trust</h4>Secure and audit agents like any other enterprise identity.</div></div>
       </section>
       <section id="pillars">
         <h2><span class="badge">3</span> What Agent 365 provides</h2>
@@ -94,23 +92,27 @@
       </section>
       <section id="registry">
         <h2><span class="badge">4</span> The Agent Registry</h2>
-        <p>The <strong>Agent Registry</strong> is converging into Agent 365 as the single inventory of your agents. It is the foundation for observing, governing, and securing agents at scale.</p><div class="callout tip"><b>One registry, many sources</b>Agents built in different tools register centrally &mdash; so policy, security, and audit apply uniformly rather than tool-by-tool.</div>
+        <p>The <strong>Agent Registry</strong> is converging into Agent 365 as the single inventory of your agents. It's the foundation for observing, governing, and securing agents at scale.</p><div class="callout tip"><b>One registry, many sources</b>Agents built in different tools register centrally &mdash; so policy, security, and audit apply uniformly rather than tool-by-tool.</div>
       </section>
       <section id="lifecycle">
         <h2><span class="badge">5</span> Managing the agent lifecycle</h2>
-        <ol class="steps"><li><strong>Onboard</strong> &mdash; register the agent and assign it a governed identity.</li><li><strong>Secure</strong> &mdash; scope its access and bring it under Defender/Purview.</li><li><strong>Observe</strong> &mdash; monitor activity, usage, and risk centrally.</li><li><strong>Retire</strong> &mdash; decommission agents cleanly when they're no longer needed.</li></ol><div class="callout warn"><b>Emerging platform</b>Agent 365 is new and evolving. Treat capabilities as a direction of travel and validate current availability in Microsoft Learn before relying on specifics.</div>
+        <ol class="steps"><li><strong>Onboard</strong> &mdash; register the agent and assign it a governed identity.</li><li><strong>Secure</strong> &mdash; scope its access and bring it under Defender/Purview.</li><li><strong>Observe</strong> &mdash; monitor activity, usage, and risk centrally.</li><li><strong>Retire</strong> &mdash; decommission agents cleanly when no longer needed.</li></ol><div class="callout warn"><b>Emerging platform</b>Agent 365 is new and evolving. Treat capabilities as a direction of travel and confirm current availability in Microsoft Learn before relying on specifics.</div>
       </section>
       <section id="glossary">
         <h2><span class="badge">6</span> Glossary</h2>
         <table><tr><th>Term</th><th>Definition</th></tr><tr><td>Control plane</td><td>The central place to manage agents (vs. running them).</td></tr><tr><td>Agent Registry</td><td>The central inventory of an organization's agents.</td></tr><tr><td>Agent identity</td><td>A governed identity (Entra) assigned to an agent.</td></tr><tr><td>Agent sprawl</td><td>Uncontrolled proliferation of ungoverned agents.</td></tr></table>
       </section>
+      <section id="learn">
+        <h2><span class="badge">7</span> Where to start &mdash; learning path</h2>
+        <p>A guided path to go from zero to productive. Work top to bottom:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-agent-365/overview" target="_blank" rel="noopener">Microsoft Agent 365 overview</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview (agent context)</a></li><li><a href="https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/use-microsoft-iq" target="_blank" rel="noopener">Microsoft IQ overview for agents</a></li></ul>
+      </section>
       <section id="sources">
-        <h2><span class="badge">7</span> Sources</h2>
-        <p>This manual is grounded in the official Microsoft documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-agent-365/overview" target="_blank" rel="noopener">Microsoft Agent 365 overview</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview</a></li></ul>
+        <h2><span class="badge">8</span> Sources</h2>
+        <p>This manual is grounded in the official documentation. For authoritative, up-to-date detail, see:</p><ul class="srclist"><li><a href="https://learn.microsoft.com/microsoft-agent-365/overview" target="_blank" rel="noopener">Microsoft Agent 365 overview</a></li><li><a href="https://learn.microsoft.com/microsoft-365-copilot/extensibility/workiq-overview" target="_blank" rel="noopener">Work IQ overview</a></li></ul>
       </section>
 
     </div>
-    <footer>Microsoft Agent 365 &middot; Training &amp; Development &middot; Generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/microsoft-agent-365/overview">Microsoft Learn documentation</a>.</footer>
+    <footer>Microsoft Agent 365 &middot; Training &amp; Development &middot; v2.0, generated 25 June 2026. Grounded in the official <a href="https://learn.microsoft.com/microsoft-agent-365/overview">Microsoft documentation</a>.</footer>
   </main>
 </div>
 </body>
